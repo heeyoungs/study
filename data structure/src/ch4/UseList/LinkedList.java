@@ -33,23 +33,16 @@ public class LinkedList {
         if(index < 0 || index > currentCount-1) {
             throw new PositionException("잘못된 인덱스 값");
         }
-        else if(index == 0){ // 처음
+        else if(index == 0){
             tempNode = tempNode.link;
             this.head = tempNode;
         }
-        else if(index == getLinkedListLength()){ // 마지막
-            for(int i=0;i<getLinkedListLength()-1;i++){
-                tempNode=tempNode.link;
-            }
-            tempNode.link = null;
-        }
-        else if(index >0 && index < currentCount){ // 중간
+        else{
             for(int i=0;i<index;i++){
                 tempPreNode= tempNode;
                 tempNode=tempNode.link;
             }
             tempPreNode.link = tempNode.link;
-            tempNode.link = tempPreNode;
         }
         currentCount--;
     }

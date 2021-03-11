@@ -30,8 +30,10 @@ public class LinkedList {
     }
     double sum(){
         double scoresum = 0;
-        for(int i =0;i<currentCouunt;i++){
-           scoresum += getNodeData(i);
+        LinkedListNode tempNode = head;
+        for(int i=0;i<currentCouunt;i++){
+            scoresum += tempNode.data;
+            tempNode = tempNode.link;
         }
         return scoresum;
     }

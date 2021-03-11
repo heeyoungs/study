@@ -50,28 +50,19 @@ public class LinkedList {
             tempNode = tempNode.link;
             this.head = tempNode;
         }
-        else if(index == getLinkedListLength()){ // 마지막
-            for(int i=0;i<getLinkedListLength()-1;i++){
-                tempNode=tempNode.link;
-            }
-            tempNode.link = null;
-        }
-        else if(index >0 && index < currentCount){ // 중간
+        else{ // 중간,마지막
             for(int i=0;i<index;i++){
                 tempPreNode= tempNode;
                 tempNode=tempNode.link;
             }
             tempPreNode.link = tempNode.link;
-            tempNode.link = tempPreNode;
         }
         currentCount--;
     } // 4-2번
     void removeNodeByData(int data) throws DataException{
         LinkedListNode tempNode = head;
         LinkedListNode tempPreNode = null;
-        int count = 0;
         while(tempNode != null){ // 값이 같은 노드 찾기
-            count++;
             if(tempNode.data == data){
                 break;
             }
@@ -85,16 +76,8 @@ public class LinkedList {
             tempNode = tempNode.link;
             this.head = tempNode;
         }
-        else if (count == getLinkedListLength()+1){ // 마지막 노드일 경우
-            tempNode =head;
-            for(int i=0;i<getLinkedListLength()-1;i++){
-                tempNode=tempNode.link;
-            }
-            tempNode.link = null;
-        }
-        else{ // 중간 노드일 경우
+        else { // 중간이후 노드일 경우
             tempPreNode.link = tempNode.link;
-            tempNode.link = tempPreNode;
         }
         currentCount--;
     } // 4-3번

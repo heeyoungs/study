@@ -24,7 +24,6 @@ public class DoubleLinkedList {
              }
              tempNode.Rlink = newNode;
              newNode.Llink = tempNode;
-
          }
          currentCount++;
     }
@@ -37,16 +36,11 @@ public class DoubleLinkedList {
         else if(index == 0){ // 처음일 경우
             head = newNode;
             newNode.Rlink = tempNode;
-            tempNode.Llink = newNode;
-        }
-        else if(index == currentCount-1){ // 마지막일 경우
-            while(tempNode.Rlink!=null){
-               tempNode = tempNode.Rlink;
+            if(tempNode != null) {
+                tempNode.Llink = newNode;
             }
-            tempNode.Rlink = newNode;
-            newNode.Llink = tempNode;
         }
-        else{
+        else if(index > 0 && index < currentCount ){ //중간일 경우
             for (int i = 0; i < index-1; i++) {
                 tempNode = tempNode.Rlink;
             }
@@ -55,30 +49,39 @@ public class DoubleLinkedList {
             newNode.Llink = tempNode;
             tempNode.Rlink.Llink = newNode;
         }
+        else{ // 마지막일 경우
+            while(tempNode.Rlink!=null){
+                tempNode = tempNode.Rlink;
+            }
+            tempNode.Rlink = newNode;
+            newNode.Llink = tempNode;
+        }
         currentCount++;
     }
     void removeNodeByIndex(int index) throws PositionException {
         DoubleLinkedListNode tempNode = head;
-        if(index<0 || index > currentCount){
+        if(index<0 || index > currentCount -1){
             throw new PositionException("인덱스 에러");
         }
         else if(index == 0){
             tempNode = tempNode.Rlink;
             head = tempNode;
-            tempNode.Llink = null;
-        }
-        else if(index == currentCount-1){
-            for(int i=0;i<currentCount-1;i++){
-                tempNode = tempNode.Rlink;
+            if(head != null){
+                tempNode.Llink = null;
             }
-            tempNode.Rlink = null;
         }
-        else{
+        else if(index > 0 && index < currentCount -1){
             for(int i=0;i<index;i++){
                 tempNode = tempNode.Rlink;
             }
             tempNode.Llink.Rlink = tempNode.Rlink;
             tempNode.Rlink.Llink = tempNode.Llink;
+        }
+        else{
+            while(tempNode.Rlink.Rlink!=null){
+                tempNode = tempNode.Rlink;
+            }
+            tempNode.Rlink = null;
         }
         currentCount--;
     }
@@ -102,18 +105,16 @@ public class DoubleLinkedList {
                 tempNode.Llink = null;
             }
         }
-        else if(nodeCount == currentCount-1){ // 마지막
-            while (tempNode.Rlink!=null){
-                tempNode = tempNode.Rlink;
-            }
-            tempNode = tempNode.Llink;
-            tempNode.Rlink = null;
+        else if(nodeCount > 0 && nodeCount < currentCount - 1){
+            tempNode.Llink.Rlink = tempNode.Rlink;
+            tempNode.Rlink.Llink = tempNode.Llink;
         }
         else{
-            for(int i=0;i<nodeCount;i++){
-                tempNode.Llink.Rlink = tempNode.Rlink;
-                tempNode.Rlink.Llink = tempNode.Llink;
+            tempNode = head;
+            while (tempNode.Rlink.Rlink!=null){
+                tempNode = tempNode.Rlink;
             }
+            tempNode.Rlink = null;
         }
         currentCount--;
     }
@@ -134,5 +135,9 @@ public class DoubleLinkedList {
     }
     int getDoubleLinkedListLength(){
         return currentCount;
+    }
+    void clearDoubleLinkedList(){
+        head = null;
+        currentCount = 0;
     }
 }

@@ -56,31 +56,33 @@ public class CircleLinkedList {
         if(index<0 || index > currentCount-1){
             throw new ch3.SingleLinkedList.PositionException("인덱스 에러");
         }
-        else if(index == 0){ // 처음
+        else if(index == 0){
+            if(currentCount == 1){
+                head = null;
+                currentCount = 0;
+                return;
+            }
             tempNode = tempNode.link;
             this.head = tempNode;
-            for(int i=0;i<currentCount-2;i++){ // 순환처리
+            for(int i=0;i<currentCount-2;i++){
                 tempNode =tempNode.link;
             }
             tempNode.link = head;
         }
-        else if(index >0 && index < currentCount){ // 중간
+        else{ // 중간이후
             for(int i=0;i<index;i++){
                 tempPreNode= tempNode;
                 tempNode=tempNode.link;
             }
             tempPreNode.link = tempNode.link;
-            tempNode.link = tempPreNode;
         }
         currentCount--;
     }
     void removeNodeByData(int data)throws ch3.SingleLinkedList.DataException{
         CircleLinkedListNode tempNode = head;
         CircleLinkedListNode tempPreNode = null;
-        int count = 0;
-        int nodeCount = 0;
+        int nodeCount;
         for(nodeCount=0;nodeCount<currentCount;nodeCount++){ // 값이 같은 노드 찾기
-            count++;
             if(tempNode.data == data){
                 break;
             }
@@ -90,7 +92,12 @@ public class CircleLinkedList {
         if(nodeCount == currentCount){
             throw new ch3.SingleLinkedList.DataException("잘못된 자료 값");
         }
-        else if(tempNode == head){ // 첫번째 노드일 경우
+        else if(tempNode == head){
+            if(currentCount == 1){
+                head = null;
+                currentCount = 0;
+                return;
+            }
             tempNode = tempNode.link;
             this.head = tempNode;
             for(int i=0;i<currentCount-2;i++){ // 순환처리
@@ -98,24 +105,13 @@ public class CircleLinkedList {
             }
             tempNode.link = head;
         }
-        else if (count == currentCount+1){ // 마지막 노드일 경우
-            tempNode = head;
-            for(int i=0;i<currentCount-2;i++){
-                tempNode=tempNode.link;
-            }
-            tempNode.link = head;
-        }
-        else{ // 중간 노드일 경우
+        else{ // 중간 이후노드일 경우
             tempPreNode.link = tempNode.link;
-            tempNode.link = tempPreNode;
         }
         currentCount--;
     }
-    int getCircleLinkedListData(int index) throws ch3.SingleLinkedList.PositionException{
+    int getCircleLinkedListData(int index){
         CircleLinkedListNode tempNode = head;
-        if(index<currentCount){
-            throw new ch3.SingleLinkedList.PositionException("인덱스 에러");
-        }
         for(int i=0;i<index;i++){
             tempNode = tempNode.link;
         }
@@ -130,5 +126,9 @@ public class CircleLinkedList {
             System.out.println("인덱스 " + i + "의 값 : " + tempNode.data);
             tempNode = tempNode.link;
         }
+    }
+    void clearCircleLinkedList(){
+        head = null;
+        currentCount = 0;
     }
 }
