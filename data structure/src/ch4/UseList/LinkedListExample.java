@@ -22,5 +22,6 @@ public class LinkedListExample {
         LinkedList B = new LinkedList();
         B = AList.SubList(BList);
         B.disPlayLinkedList();
+
     }
 }
