@@ -1,7 +1,7 @@
-package ch4.DoubleLinkedList;
+package ch4.doublelinkedlist;
 
-import ch3.SingleLinkedList.PositionException;
-import ch3.SingleLinkedList.DataException;
+import ch3.singlelinkedlist.PositionException;
+import ch3.singlelinkedlist.DataException;
 
 public class DoubleLinkedListExample {
     public static void main(String[] args){

@@ -1,5 +1,5 @@
 package ch13;
-/*
+
 import java.util.Arrays;
 
 public class WildCardExample {
@@ -43,4 +43,4 @@ public class WildCardExample {
         registerCourseWorker(personCourse);
         registerCourseWorker(workerCourse);
     }
-}*/
+}

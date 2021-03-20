@@ -1,4 +1,4 @@
-package ch3.Sol2;
+package ch3.sol2;
 
 import java.util.Scanner;
 

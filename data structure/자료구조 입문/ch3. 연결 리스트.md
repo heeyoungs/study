@@ -19,8 +19,11 @@ public class LinkedListNode {
     LinkedListNode(int data){
         this.data = data;
     }
-    protected int data;
-    protected LinkedListNode link;
+    private int data;
+    int getData(){
+        return data;
+    }
+    LinkedListNode link;
 }
 ```
 
@@ -92,7 +95,7 @@ int getNodeData(int index){ // 값 가져오기
     for(int i=0;i<index;i++){
         tempNode = tempNode.link;
     }
-    return tempNode.data;
+    return tempNode.getData();
 }
 ```
 
@@ -110,18 +113,18 @@ int getNodeData(int index){ // 값 가져오기
 
 ``` java
 void addNode(int data){ // 꼬리에 추가, 기본
-        LinkedListNode newNode = new LinkedListNode(data);
-        if(head == null){
-            this.head = newNode;
+    LinkedListNode newNode = new LinkedListNode(data);
+    if(head == null){
+        this.head = newNode;
+    }
+    else{
+        LinkedListNode tempNode = head;
+        while(tempNode.link != null){
+            tempNode = tempNode.link;
         }
-        else{
-            LinkedListNode tempNode = head;
-            while(tempNode.link != null){
-                tempNode = tempNode.link;
-            }
-            tempNode.link = newNode;
-        }
-        currentCount++;
+        tempNode.link = newNode;
+    }
+    currentCount++;
 }
 ```
 
@@ -140,24 +143,24 @@ void addNode(int data){ // 꼬리에 추가, 기본
 2) 노드를 연결 리스트의 원하는 위치에 삽입한다. 
 
 ``` java
-void addNode(int index,int data)throws PositionException{ 
-        LinkedListNode newNode = new LinkedListNode(data);
-        LinkedListNode tempNode = head;
-        if(index <0 || index >currentCount){
-            throw new PositionException("잘못된 인덱스 값");
+void addNode(int index,int data)throws PositionException{ // 인덱스에 의한 값 추가, 삽입
+    LinkedListNode newNode = new LinkedListNode(data);
+    LinkedListNode tempNode = head;
+    if(index <0 || index >currentCount){ // 음수 또는 연결리스트보다 큰 인덱스 예외
+        throw new PositionException("잘못된 인덱스 값");
+    }
+    else if(index == 0){ // 처음일 경우
+        this.head = newNode;
+        newNode.link = tempNode;
+    }
+    else { // 중간, 마지막일 경우
+        for (int i = 0; i < index-1; i++) {
+            tempNode = tempNode.link;
         }
-        else if(index == 0){ 
-            this.head = newNode;
-            newNode.link = tempNode;
-        }
-        else { 
-            for (int i = 0; i < index-1; i++) {
-                tempNode = tempNode.link;
-            }
-            newNode.link = tempNode.link;
-            tempNode.link = newNode;
-        }
-        currentCount++;
+        newNode.link = tempNode.link;
+        tempNode.link = newNode;
+    }
+    currentCount++;
 }
 ```
 
@@ -186,24 +189,24 @@ void addNode(int index,int data)throws PositionException{
 
 ``` java
 void removeNodeByIndex(int index)throws PositionException{
-        LinkedListNode tempNode = head;
-        LinkedListNode tempPreNode = null;
-        if(index < 0 || index > currentCount-1) {
-            throw new PositionException("잘못된 인덱스 값");
+    LinkedListNode tempNode = head;
+    LinkedListNode tempPreNode = null;
+    if(index < 0 || index > currentCount-1) {
+        throw new PositionException("잘못된 인덱스 값");
+    }
+    else if(index == 0){ // 처음
+        tempNode = tempNode.link;
+        this.head = tempNode;
+    }
+    else{ // 중간,마지막
+        for(int i=0;i<index;i++){
+            tempPreNode= tempNode;
+            tempNode=tempNode.link;
         }
-        else if(index == 0){
-            tempNode = tempNode.link;
-            this.head = tempNode;
-        }
-        else{
-            for(int i=0;i<index;i++){
-                tempPreNode= tempNode;
-                tempNode=tempNode.link;
-            }
-            tempPreNode.link = tempNode.link;
-        }
-        currentCount--;
-}
+        tempPreNode.link = tempNode.link;
+    }
+    currentCount--;
+} 
 ```
 
 1. tempNode가 head를 가리키고, tempPreNode는 null을 가리키게 합니다.
@@ -225,8 +228,8 @@ void removeNodeByIndex(int index)throws PositionException{
 void removeNodeByData(int data) throws DataException{
     LinkedListNode tempNode = head;
     LinkedListNode tempPreNode = null;
-    while(tempNode != null){ 
-        if(tempNode.data == data){
+    while(tempNode != null){ // 값이 같은 노드 찾기
+        if(tempNode.getData() == data){
             break;
         }
         tempPreNode= tempNode;
@@ -235,11 +238,11 @@ void removeNodeByData(int data) throws DataException{
     if(tempNode == null){
         throw new DataException("잘못된 자료 값");
     }
-    else if(tempNode == head){ 
+    else if(tempNode == head){ // 첫번째 노드일 경우
         tempNode = tempNode.link;
         this.head = tempNode;
     }
-    else { 
+    else { // 중간이후 노드일 경우
         tempPreNode.link = tempNode.link;
     }
     currentCount--;
@@ -395,7 +398,7 @@ void iterateLinkedList(){ // disPlayList 함수의 시간 복잡도 단축
     System.out.println("iterateList");
 
     while(tempNode != null){
-        value = tempNode.data;
+        value = tempNode.getData();
         System.out.println("인덱스 " + count + "의 값 : " + value);
         tempNode = tempNode.link;
         count++;
@@ -462,7 +465,6 @@ void reverseLinkedList(){
     }
     head = q;
 }
-}
 ```
 
 1. p는 head를 r,q는 null을 가리키게 한다.
@@ -483,7 +485,10 @@ public class LinkedListNode {
     LinkedListNode(double data){
         this.data = data;
     }
-    double data;
+    private double data;
+    double getData(){
+        return data;
+    }
     LinkedListNode link;
 }
 ```
@@ -515,13 +520,13 @@ public class LinkedList {
         for(int i=0;i<index;i++){
             tempNode = tempNode.link;
         }
-        return tempNode.data;
+        return tempNode.getData();
     }
     double sum(){
         double scoresum = 0;
         LinkedListNode tempNode = head;
         for(int i=0;i<currentCouunt;i++){
-            scoresum += tempNode.data;
+            scoresum += tempNode.getData();
             tempNode = tempNode.link;
         }
         return scoresum;
@@ -610,9 +615,13 @@ public class LinkedListNode {
     LinkedListNode(int data){
         this.data = data;
     }
-    protected int data;
-    protected LinkedListNode link;
+    private int data;
+    int getData(){
+        return data;
+    }
+    LinkedListNode link;
 }
+
 ```
 
 ``` java
@@ -679,7 +688,7 @@ public class LinkedList {
         LinkedListNode tempNode = head;
         LinkedListNode tempPreNode = null;
         while(tempNode != null){ // 값이 같은 노드 찾기
-            if(tempNode.data == data){
+            if(tempNode.getData() == data){
                 break;
             }
             tempPreNode= tempNode;
@@ -702,7 +711,7 @@ public class LinkedList {
         for(int i=0;i<index;i++){
             tempNode = tempNode.link;
         }
-        return tempNode.data;
+        return tempNode.getData();
     }
     int getLinkedListLength(){ // 1-2번
         int count=0;
@@ -732,7 +741,7 @@ public class LinkedList {
         System.out.println("iterateList");
 
         while(tempNode != null){
-            value = tempNode.data;
+            value = tempNode.getData();
             System.out.println("인덱스 " + count + "의 값 : " + value);
             tempNode = tempNode.link;
             count++;

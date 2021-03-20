@@ -1,9 +1,11 @@
-package ch4.CircleLinkedList;
+package ch4.circlelinkedlist;
 
 public class CircleLinkedListNode {
-    protected int data;
-    protected CircleLinkedListNode link;
-
+    private int data;
+    int getData(){
+        return data;
+    }
+    CircleLinkedListNode link;
     CircleLinkedListNode(int data){
         this.data = data;
         this.link = null;

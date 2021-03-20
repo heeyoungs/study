@@ -1,4 +1,4 @@
-package ch3.SingleLinkedList;
+package ch3.singlelinkedlist;
 
 public class LinkedListExample {
     public static void main(String[] args){

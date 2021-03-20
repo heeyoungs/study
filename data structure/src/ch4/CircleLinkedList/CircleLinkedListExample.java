@@ -1,7 +1,7 @@
-package ch4.CircleLinkedList;
+package ch4.circlelinkedlist;
 
-import ch3.SingleLinkedList.PositionException;
-import ch3.SingleLinkedList.DataException;
+import ch3.singlelinkedlist.PositionException;
+import ch3.singlelinkedlist.DataException;
 
 public class CircleLinkedListExample {
     public static void main(String[] args){

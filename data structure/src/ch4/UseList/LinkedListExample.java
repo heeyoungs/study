@@ -1,4 +1,4 @@
-package ch4.UseList;
+package ch4.uselist;
 
 public class LinkedListExample {
     public static void main(String[] args){

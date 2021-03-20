@@ -10,7 +10,7 @@ public class Course <T>{
     }
 
     public String getName(){return name;}
-    public T[] getStudents() {return students;}
+    public T[]  getStudents() {return students;}
     public void add(T t){
         for(int i=0;i<students.length;i++){
             if(students[i]==null){

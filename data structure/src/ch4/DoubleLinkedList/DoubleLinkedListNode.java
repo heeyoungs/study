@@ -1,9 +1,11 @@
-package ch4.DoubleLinkedList;
+package ch4.doublelinkedlist;
 
 public class DoubleLinkedListNode {
-    protected DoubleLinkedListNode Rlink,Llink;
-    protected int data;
-
+    DoubleLinkedListNode Rlink,Llink;
+    private int data;
+    int getData(){
+        return data;
+    }
     DoubleLinkedListNode(int data){
         this.data = data;
         Rlink = Llink = null;

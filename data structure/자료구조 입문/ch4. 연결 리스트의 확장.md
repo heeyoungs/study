@@ -24,9 +24,11 @@
 
 ``` java
 public class CircleLinkedListNode {
-    protected int data;
-    protected CircleLinkedListNode link;
-
+    private int data;
+    int getData(){
+        return data;
+    }
+    CircleLinkedListNode link;
     CircleLinkedListNode(int data){
         this.data = data;
         this.link = null;
@@ -74,7 +76,7 @@ int getCircleLinkedListData(int index){
     for(int i=0;i<index;i++){
         tempNode = tempNode.link;
     }
-    return tempNode.data;
+    return tempNode.getData();
 }
 ```
 
@@ -124,17 +126,17 @@ void addNode(int data){
 2) 노드를 원형 연결 리스트의 원하는 위치에 삽입한다. 
 
 ``` java
-void addNode(int index,int data)throws ch3.SingleLinkedList.PositionException{
+void addNode(int index,int data)throws PositionException{
     CircleLinkedListNode newNode = new CircleLinkedListNode(data);
     CircleLinkedListNode tempNode = head;
     if(index<0||index>currentCount){
-        throw new ch3.SingleLinkedList.PositionException("인덱스 에러");
+        throw new PositionException("인덱스 에러");
     }
     else if(head == null){
         head = newNode;
         newNode.link = newNode;
     }
-    else if(index == 0){
+    else if(index == 0){ // 처음에 삽입
         for(int i=0;i<currentCount-1;i++){
             tempNode = tempNode.link;
         }
@@ -175,11 +177,11 @@ void addNode(int index,int data)throws ch3.SingleLinkedList.PositionException{
 1) 인덱스에 의한 제거
 
 ``` java
-void removeNodeByIndex(int index)throws ch3.SingleLinkedList.PositionException{
+void removeNodeByIndex(int index)throws PositionException{
     CircleLinkedListNode tempNode = head;
     CircleLinkedListNode tempPreNode = null;
     if(index<0 || index > currentCount-1){
-        throw new ch3.SingleLinkedList.PositionException("인덱스 에러");
+        throw new PositionException("인덱스 에러");
     }
     else if(index == 0){
         if(currentCount == 1){
@@ -194,7 +196,7 @@ void removeNodeByIndex(int index)throws ch3.SingleLinkedList.PositionException{
         }
         tempNode.link = head;
     }
-    else{
+    else{ // 중간이후
         for(int i=0;i<index;i++){
             tempPreNode= tempNode;
             tempNode=tempNode.link;
@@ -230,29 +232,34 @@ void removeNodeByIndex(int index)throws ch3.SingleLinkedList.PositionException{
 2) 값에 의한 제거
 
 ``` java
-void removeNodeByData(int data)throws ch3.SingleLinkedList.DataException{
+void removeNodeByData(int data)throws DataException{
     CircleLinkedListNode tempNode = head;
     CircleLinkedListNode tempPreNode = null;
     int nodeCount;
     for(nodeCount=0;nodeCount<currentCount;nodeCount++){ 
-        if(tempNode.data == data){
+        if(tempNode.getData() == data){
             break;
         }
         tempPreNode= tempNode;
         tempNode = tempNode.link;
     }
     if(nodeCount == currentCount){
-        throw new ch3.SingleLinkedList.DataException("잘못된 자료 값");
+        throw new DataException("잘못된 자료 값");
     }
     else if(tempNode == head){
+        if(currentCount == 1){
+            head = null;
+            currentCount = 0;
+            return;
+        }
         tempNode = tempNode.link;
         this.head = tempNode;
-        for(int i=0;i<currentCount-2;i++){ 
+        for(int i=0;i<currentCount-2;i++){ // 순환처리
             tempNode =tempNode.link;
         }
         tempNode.link = head;
     }
-    else{ 
+    else{ // 중간 이후노드일 경우
         tempPreNode.link = tempNode.link;
     }
     currentCount--;
@@ -305,7 +312,7 @@ void clearCircleLinkedList(){
 void disPlayCircleLinkedList(){
     CircleLinkedListNode tempNode = head;
     for(int i=0;i<currentCount;i++){
-        System.out.println("인덱스 " + i + "의 값 : " + tempNode.data);
+        System.out.println("인덱스 " + i + "의 값 : " + tempNode.getData());
         tempNode = tempNode.link;
     }
 }
@@ -329,14 +336,17 @@ int getCircleLinkedListSize(){
 
 ``` java
 public class CircleLinkedListNode {
-    protected int data;
-    protected CircleLinkedListNode link;
-
+    private int data;
+    int getData(){
+        return data;
+    }
+    CircleLinkedListNode link;
     CircleLinkedListNode(int data){
         this.data = data;
         this.link = null;
     }
 }
+
 ```
 
 ``` java
@@ -364,17 +374,17 @@ public class CircleLinkedList {
         }
         currentCount++;
     }
-    void addNode(int index,int data)throws ch3.SingleLinkedList.PositionException{
+    void addNode(int index,int data)throws PositionException{
         CircleLinkedListNode newNode = new CircleLinkedListNode(data);
         CircleLinkedListNode tempNode = head;
         if(index<0||index>currentCount){
-            throw new ch3.SingleLinkedList.PositionException("인덱스 에러");
+            throw new PositionException("인덱스 에러");
         }
         else if(head == null){
             head = newNode;
             newNode.link = newNode;
         }
-        else if(index == 0){ 
+        else if(index == 0){ // 처음에 삽입
             for(int i=0;i<currentCount-1;i++){
                 tempNode = tempNode.link;
             }
@@ -390,11 +400,11 @@ public class CircleLinkedList {
         }
         currentCount++;
     }
-    void removeNodeByIndex(int index)throws ch3.SingleLinkedList.PositionException{
+    void removeNodeByIndex(int index)throws PositionException{
         CircleLinkedListNode tempNode = head;
         CircleLinkedListNode tempPreNode = null;
         if(index<0 || index > currentCount-1){
-            throw new ch3.SingleLinkedList.PositionException("인덱스 에러");
+            throw new PositionException("인덱스 에러");
         }
         else if(index == 0){
             if(currentCount == 1){
@@ -409,7 +419,7 @@ public class CircleLinkedList {
             }
             tempNode.link = head;
         }
-        else{ 
+        else{ // 중간이후
             for(int i=0;i<index;i++){
                 tempPreNode= tempNode;
                 tempNode=tempNode.link;
@@ -418,19 +428,19 @@ public class CircleLinkedList {
         }
         currentCount--;
     }
-    void removeNodeByData(int data)throws ch3.SingleLinkedList.DataException{
+    void removeNodeByData(int data)throws DataException{
         CircleLinkedListNode tempNode = head;
         CircleLinkedListNode tempPreNode = null;
         int nodeCount;
-        for(nodeCount=0;nodeCount<currentCount;nodeCount++){ 
-            if(tempNode.data == data){
+        for(nodeCount=0;nodeCount<currentCount;nodeCount++){ // 값이 같은 노드 찾기
+            if(tempNode.getData() == data){
                 break;
             }
             tempPreNode= tempNode;
             tempNode = tempNode.link;
         }
         if(nodeCount == currentCount){
-            throw new ch3.SingleLinkedList.DataException("잘못된 자료 값");
+            throw new DataException("잘못된 자료 값");
         }
         else if(tempNode == head){
             if(currentCount == 1){
@@ -440,12 +450,12 @@ public class CircleLinkedList {
             }
             tempNode = tempNode.link;
             this.head = tempNode;
-            for(int i=0;i<currentCount-2;i++){
+            for(int i=0;i<currentCount-2;i++){ // 순환처리
                 tempNode =tempNode.link;
             }
             tempNode.link = head;
         }
-        else{ 
+        else{ // 중간 이후노드일 경우
             tempPreNode.link = tempNode.link;
         }
         currentCount--;
@@ -455,7 +465,7 @@ public class CircleLinkedList {
         for(int i=0;i<index;i++){
             tempNode = tempNode.link;
         }
-        return tempNode.data;
+        return tempNode.getData();
     }
     int getCircleLinkedListSize(){
         return currentCount;
@@ -463,7 +473,7 @@ public class CircleLinkedList {
     void disPlayCircleLinkedList(){
         CircleLinkedListNode tempNode = head;
         for(int i=0;i<currentCount;i++){
-            System.out.println("인덱스 " + i + "의 값 : " + tempNode.data);
+            System.out.println("인덱스 " + i + "의 값 : " + tempNode.getData());
             tempNode = tempNode.link;
         }
     }
@@ -528,9 +538,11 @@ public class CircleLinkedListExample {
 
 ``` java
 public class DoubleLinkedListNode {
-    protected DoubleLinkedListNode Rlink,Llink;
-    protected int data;
-
+    DoubleLinkedListNode Rlink,Llink;
+    private int data;
+    int getData(){
+        return data;
+    }
     DoubleLinkedListNode(int data){
         this.data = data;
         Rlink = Llink = null;
@@ -578,7 +590,7 @@ int getDoubleLinkedListData(int index){
     for(int i=0;i<index;i++){
         tempNode = tempNode.Rlink;
     }
-    return tempNode.data;
+    return tempNode.getData();
 }
 ```
 
@@ -633,14 +645,14 @@ void addNode(int index,int data)throws PositionException {
     if(index <0 || index >currentCount){ 
         throw new PositionException("잘못된 인덱스 값");
     }
-    else if(index == 0){
+    else if(index == 0){ // 처음일 경우
         head = newNode;
         newNode.Rlink = tempNode;
         if(tempNode != null) {
             tempNode.Llink = newNode;
         }
     }
-    else if(index > 0 && index < currentCount ){
+    else if(index > 0 && index < currentCount ){ //중간일 경우
         for (int i = 0; i < index-1; i++) {
             tempNode = tempNode.Rlink;
         }
@@ -649,7 +661,7 @@ void addNode(int index,int data)throws PositionException {
         newNode.Llink = tempNode;
         tempNode.Rlink.Llink = newNode;
     }
-    else{
+    else{ // 마지막일 경우
         while(tempNode.Rlink!=null){
             tempNode = tempNode.Rlink;
         }
@@ -665,7 +677,7 @@ void addNode(int index,int data)throws PositionException {
 3. 첫 번째 자리에 노드를 추가하려는 경우
    1. 헤드를 tempNode에서 newNode로 바꿔준다.
    2. newNode의 다음 노드를 tempNode로 바꿔준다.
-   3. 만약 원래 있던 노드의 개수가 2개 이상이면 tempNode의 이전노드가 newNode를 가리키게 한다.
+   3. 만약 원래 있던 노드의 개수가 1개 이상이면 tempNode의 이전노드가 newNode를 가리키게 한다.
 4. 중간에 노드를 추가하려는 경우
    1. tempNode가 head를 타고 추가하려는 위치의 바로 전 위치까지 이동한다.
    2. newNode의 다음 노드를 tempNode의 다음 노드를 가리키게 바꿔준다.
@@ -723,7 +735,7 @@ void removeNodeByIndex(int index) throws PositionException {
 3. 처음에 위치한 노드를 지울 경우
    1. tempNode를 다음 노드로 이동시킵니다.
    2. 그 노드가 head 가 됩니다.
-   3. 만약 원래 존재하던 노드가 2개 이상일 경우 tempNode의 이전 노드가 null을 가리키게 바꿔줍니다.
+   3. 만약 원래 존재하던 노드가 1개 이상일 경우 tempNode의 이전 노드가 null을 가리키게 바꿔줍니다.
 4. 중간에 위치한 노드를 지울 경우
    1. tempNode가 head를 타고 지우려는 노드까지 갑니다.
    2. "tempNode의 이전 노드의 다음 노드"가 "tempNode의 다음 노드"를 가리키게 바꿔줍니다.
@@ -742,7 +754,7 @@ void removeNodeByData(int data)throws DataException{
     DoubleLinkedListNode tempNode = head;
     int nodeCount = 0;
     while(tempNode != null){
-        if(tempNode.data == data){
+        if(tempNode.getData() == data){
             break;
         }
         tempNode = tempNode.Rlink;
@@ -751,7 +763,7 @@ void removeNodeByData(int data)throws DataException{
     if(tempNode == null){
         throw new DataException("잘못된 자료 값");
     }
-    else if(tempNode == head){
+    else if(tempNode == head){ // 처음
         tempNode = tempNode.Rlink;
         head = tempNode;
         if(tempNode!=null){
@@ -779,7 +791,7 @@ void removeNodeByData(int data)throws DataException{
 4. 처음에 위치한 노드를 지울 경우 (위와 동일)
    1. tempNode를 다음 노드로 이동시킵니다.
    2. 그 노드가 head 가 됩니다. 
-   3. 만약 원래 존재하던 노드가 2개 이상일 경우 tempNode의 이전 노드가 null을 가리키게 바꿔줍니다.
+   3. 만약 원래 존재하던 노드가 1개 이상일 경우 tempNode의 이전 노드가 null을 가리키게 바꿔줍니다.
 5. 중간에 위치한 노드를 지울 경우
    1. "tempNode의 이전 노드의 다음 노드"가 "tempNode의 다음 노드"를 가리키게 바꿔줍니다.
    2. "tempNode의 다음 노드의 이전 노드"가 "tempNode의 이전 노드"를 가리키게 바꿔줍니다.
@@ -812,7 +824,7 @@ void disPlayList(){
     DoubleLinkedListNode tempNode = head;
     System.out.println("disPlayList");
     for(int i=0;i<currentCount;i++){
-        System.out.println("인덱스 " + i + "의 값 : " + tempNode.data);
+        System.out.println("인덱스 " + i + "의 값 : " + tempNode.getData());
         tempNode = tempNode.Rlink;
     }
 }
@@ -838,9 +850,11 @@ int getDoubleLinkedListLength(){
 
 ``` java
 public class DoubleLinkedListNode {
-    protected DoubleLinkedListNode Rlink,Llink;
-    protected int data;
-
+    DoubleLinkedListNode Rlink,Llink;
+    private int data;
+    int getData(){
+        return data;
+    }
     DoubleLinkedListNode(int data){
         this.data = data;
         Rlink = Llink = null;
@@ -876,17 +890,17 @@ public class DoubleLinkedList {
     void addNode(int index,int data)throws PositionException {
         DoubleLinkedListNode newNode = new DoubleLinkedListNode(data);
         DoubleLinkedListNode tempNode = head;
-        if(index <0 || index >currentCount){ 
+        if(index <0 || index >currentCount){ // 음수 또는 연결리스트보다 큰 인덱스 예외
             throw new PositionException("잘못된 인덱스 값");
         }
-        else if(index == 0){ 
+        else if(index == 0){ // 처음일 경우
             head = newNode;
             newNode.Rlink = tempNode;
             if(tempNode != null) {
                 tempNode.Llink = newNode;
             }
         }
-        else if(index > 0 && index < currentCount ){ 
+        else if(index > 0 && index < currentCount ){ //중간일 경우
             for (int i = 0; i < index-1; i++) {
                 tempNode = tempNode.Rlink;
             }
@@ -895,7 +909,7 @@ public class DoubleLinkedList {
             newNode.Llink = tempNode;
             tempNode.Rlink.Llink = newNode;
         }
-        else{ 
+        else{ // 마지막일 경우
             while(tempNode.Rlink!=null){
                 tempNode = tempNode.Rlink;
             }
@@ -935,7 +949,7 @@ public class DoubleLinkedList {
         DoubleLinkedListNode tempNode = head;
         int nodeCount = 0;
         while(tempNode != null){
-            if(tempNode.data == data){
+            if(tempNode.getData() == data){
                 break;
             }
             tempNode = tempNode.Rlink;
@@ -944,7 +958,7 @@ public class DoubleLinkedList {
         if(tempNode == null){
             throw new DataException("잘못된 자료 값");
         }
-        else if(tempNode == head){ 
+        else if(tempNode == head){ // 처음
             tempNode = tempNode.Rlink;
             head = tempNode;
             if(tempNode!=null){
@@ -968,7 +982,7 @@ public class DoubleLinkedList {
         DoubleLinkedListNode tempNode = head;
         System.out.println("disPlayList");
         for(int i=0;i<currentCount;i++){
-            System.out.println("인덱스 " + i + "의 값 : " + tempNode.data);
+            System.out.println("인덱스 " + i + "의 값 : " + tempNode.getData());
             tempNode = tempNode.Rlink;
         }
     }
@@ -977,7 +991,7 @@ public class DoubleLinkedList {
         for(int i=0;i<index;i++){
             tempNode = tempNode.Rlink;
         }
-        return tempNode.data;
+        return tempNode.getData();
     }
     int getDoubleLinkedListLength(){
         return currentCount;
@@ -996,7 +1010,7 @@ public class DoubleLinkedListExample {
 
         try {
             pList.addNode(0,10);
-            pList.addNode(1,20);
+            pList.addNode( 1,20);
             pList.addNode(2,400);
             pList.addNode(30);
         }catch (PositionException e){
@@ -1052,8 +1066,14 @@ ex) 3x^5 + 8x + 1
 
 ``` java
 public class DataBox {
-    protected int degree;
-    protected double coef;
+    private int degree;
+    private double coef;
+    int getDegree(){
+        return degree;
+    }
+    double getCoef(){
+        return coef;
+    }
     DataBox(int degree,double coef){
         this.degree = degree;
         this.coef = coef;
@@ -1067,8 +1087,8 @@ public class DataBox {
 
 ``` java
 public class LinkedListNode {
-    protected LinkedListNode link;
-    protected DataBox data;
+    LinkedListNode link;
+    DataBox data;
     LinkedListNode(DataBox data){
         this.data = data;
         this.link = null;
@@ -1131,7 +1151,7 @@ void removeNode(int index)throws PositionException{
     if(index < 0 || index > currentCount-1) {
         throw new PositionException("잘못된 인덱스 값");
     }
-    else if(index == 0){ 
+    else if(index == 0){
         tempNode = tempNode.link;
         this.head = tempNode;
     }
@@ -1192,10 +1212,10 @@ void disPlayLinkedList(){
         if(i>0){
             System.out.print(" + ");
         }
-        if(tempNode.data.degree == 0) {
-            System.out.print(tempNode.data.coef);
+        if(tempNode.data.getDegree() == 0) {
+            System.out.print(tempNode.data.getCoef());
         }else{
-            System.out.print(tempNode.data.coef + "x^" + tempNode.data.degree);
+            System.out.print(tempNode.data.getCoef() + "x^" + tempNode.data.getDegree());
         }
         i++;
         tempNode = tempNode.link;
@@ -1248,16 +1268,16 @@ LinkedList AddList(LinkedList pList){
 	// ANode와 BNode가 null을 가리킬때 까지!
     if(ANode != null && BNode != null) {
         while (ANode != null && BNode != null) {
-            int degreeA = ANode.data.degree;
-            int degreeB = BNode.data.degree;
+            int degreeA = ANode.data.getDegree();
+            int degreeB = BNode.data.getDegree();
             // 1) ANode의 차수가 더 큰 경우
             if (degreeA > degreeB) {
-                coefSum = ANode.data.coef;
+                coefSum = ANode.data.getCoef();
                 newList.addNode(degreeA, coefSum);
                 ANode = ANode.link;
             // 2) ANode와 BNode의 차수가 동일한 경우
             } else if (degreeA == degreeB) {
-                coefSum = ANode.data.coef + BNode.data.coef;
+                coefSum = ANode.data.getCoef() + BNode.data.getCoef();
                 if(coefSum == 0){
                     ANode = ANode.link;
                     BNode = BNode.link;
@@ -1268,7 +1288,7 @@ LinkedList AddList(LinkedList pList){
                 BNode = BNode.link;
             // 3) BNode의 차수가 더 큰 경우
             } else {
-                coefSum = BNode.data.coef;
+                coefSum = BNode.data.getCoef();
                 newList.addNode(degreeB, coefSum);
                 BNode = BNode.link;
             }
@@ -1276,14 +1296,14 @@ LinkedList AddList(LinkedList pList){
         // 4) 후처리
         // 4-1) ANode에만 항이 남은 경우
         while (ANode != null) {
-            coefSum = ANode.data.coef;
-            newList.addNode(ANode.data.degree, coefSum);
+            coefSum = ANode.data.getCoef();
+            newList.addNode(ANode.data.getDegree(), coefSum);
             ANode = ANode.link;
         }
         // 4-2) BNode에만 항이 남은 경우
         while (BNode != null) {
-            coefSum = BNode.data.coef;
-            newList.addNode(BNode.data.degree, coefSum);
+            coefSum = BNode.data.getCoef();
+            newList.addNode(BNode.data.getDegree(), coefSum);
             BNode = BNode.link;
         }
     }
@@ -1298,9 +1318,9 @@ LinkedList AddList(LinkedList pList){
 
 1) ANode의 차수가 더 큰 경우
 
-	1. ANode의 계수를 coefSum에 저장
- 	2. newList에 coefSum과 A의 차수를 저장한 노드를 추가
- 	3. ANode가 다음 노드로 이동
+1. ANode의 계수를 coefSum에 저장
+2. newList에 coefSum과 A의 차수를 저장한 노드를 추가
+3. ANode가 다음 노드로 이동
 
 
 
@@ -1318,9 +1338,9 @@ LinkedList AddList(LinkedList pList){
 
 3) BNode의 차수가 더 큰 경우
 
- 	1. BNode의 계수를 coefSum에 저장
- 	2. newList에 coefSum과 B의 차수를 저장한 노드를 추가
- 	3. BNode가 다음 노드로 이동
+1. BNode의 계수를 coefSum에 저장
+2. newList에 coefSum과 B의 차수를 저장한 노드를 추가
+3. BNode가 다음 노드로 이동
 
 
 
@@ -1375,14 +1395,14 @@ LinkedList SubList(LinkedList pList){
 
     if(ANode != null && BNode != null) {
         while (ANode != null && BNode != null) {
-            int degreeA = ANode.data.degree;
-            int degreeB = BNode.data.degree;
+            int degreeA = ANode.data.getDegree();
+            int degreeB = BNode.data.getDegree();
             if (degreeA > degreeB) {
-                coefSum = ANode.data.coef;
+                coefSum = ANode.data.getCoef();
                 newList.addNode(degreeA, coefSum);
                 ANode = ANode.link;
             } else if (degreeA == degreeB) {
-                coefSum = ANode.data.coef - BNode.data.coef;
+                coefSum = ANode.data.getCoef() - BNode.data.getCoef();
                 if(coefSum == 0){
                     ANode = ANode.link;
                     BNode = BNode.link;
@@ -1392,19 +1412,19 @@ LinkedList SubList(LinkedList pList){
                 ANode = ANode.link;
                 BNode = BNode.link;
             } else {
-                coefSum = -BNode.data.coef;
+                coefSum = -BNode.data.getCoef();
                 newList.addNode(degreeB, coefSum);
                 BNode = BNode.link;
             }
         }
         while (ANode != null) {
-            coefSum = ANode.data.coef;
-            newList.addNode(ANode.data.degree, coefSum);
+            coefSum = ANode.data.getCoef();
+            newList.addNode(ANode.data.getDegree(), coefSum);
             ANode = ANode.link;
         }
         while (BNode != null) {
-            coefSum = -BNode.data.coef;
-            newList.addNode(BNode.data.degree, coefSum);
+            coefSum = -BNode.data.getCoef();
+            newList.addNode(BNode.data.getDegree(), coefSum);
             BNode = BNode.link;
         }
     }
@@ -1460,9 +1480,15 @@ LinkedList SubList(LinkedList pList){
 
 ``` java
 public class DataBox {
-    protected int degree;
-    protected double coef;
-    DataBox(int degree,double coef){
+    private int degree;
+    private double coef;
+    int getDegree(){
+        return degree;
+    }
+    double getCoef(){
+        return coef;
+    }
+    protected DataBox(int degree,double coef){
         this.degree = degree;
         this.coef = coef;
     }
@@ -1480,7 +1506,9 @@ public class LinkedListNode {
 }
 ```
 
-``` java'
+``` java
+import ch3.singlelinkedlist.PositionException;
+
 public class LinkedList {
     private LinkedListNode head;
     private int currentCount;
@@ -1549,10 +1577,10 @@ public class LinkedList {
             if(i>0){
                 System.out.print(" + ");
             }
-            if(tempNode.data.degree == 0) {
-                System.out.print(tempNode.data.coef);
+            if(tempNode.data.getDegree() == 0) {
+                System.out.print(tempNode.data.getCoef());
             }else{
-                System.out.print(tempNode.data.coef + "x^" + tempNode.data.degree);
+                System.out.print(tempNode.data.getCoef() + "x^" + tempNode.data.getDegree());
             }
             i++;
             tempNode = tempNode.link;
@@ -1568,14 +1596,14 @@ public class LinkedList {
 
         if(ANode != null && BNode != null) {
             while (ANode != null && BNode != null) {
-                int degreeA = ANode.data.degree;
-                int degreeB = BNode.data.degree;
+                int degreeA = ANode.data.getDegree();
+                int degreeB = BNode.data.getDegree();
                 if (degreeA > degreeB) {
-                    coefSum = ANode.data.coef;
+                    coefSum = ANode.data.getCoef();
                     newList.addNode(degreeA, coefSum);
                     ANode = ANode.link;
                 } else if (degreeA == degreeB) {
-                    coefSum = ANode.data.coef + BNode.data.coef;
+                    coefSum = ANode.data.getCoef() + BNode.data.getCoef();
                     if(coefSum == 0){
                         ANode = ANode.link;
                         BNode = BNode.link;
@@ -1585,19 +1613,19 @@ public class LinkedList {
                     ANode = ANode.link;
                     BNode = BNode.link;
                 } else {
-                    coefSum = BNode.data.coef;
+                    coefSum = BNode.data.getCoef();
                     newList.addNode(degreeB, coefSum);
                     BNode = BNode.link;
                 }
             }
             while (ANode != null) {
-                coefSum = ANode.data.coef;
-                newList.addNode(ANode.data.degree, coefSum);
+                coefSum = ANode.data.getCoef();
+                newList.addNode(ANode.data.getDegree(), coefSum);
                 ANode = ANode.link;
             }
             while (BNode != null) {
-                coefSum = BNode.data.coef;
-                newList.addNode(BNode.data.degree, coefSum);
+                coefSum = BNode.data.getCoef();
+                newList.addNode(BNode.data.getDegree(), coefSum);
                 BNode = BNode.link;
             }
         }
@@ -1615,14 +1643,14 @@ public class LinkedList {
 
         if(ANode != null && BNode != null) {
             while (ANode != null && BNode != null) {
-                int degreeA = ANode.data.degree;
-                int degreeB = BNode.data.degree;
+                int degreeA = ANode.data.getDegree();
+                int degreeB = BNode.data.getDegree();
                 if (degreeA > degreeB) {
-                    coefSum = ANode.data.coef;
+                    coefSum = ANode.data.getCoef();
                     newList.addNode(degreeA, coefSum);
                     ANode = ANode.link;
                 } else if (degreeA == degreeB) {
-                    coefSum = ANode.data.coef - BNode.data.coef;
+                    coefSum = ANode.data.getCoef() - BNode.data.getCoef();
                     if(coefSum == 0){
                         ANode = ANode.link;
                         BNode = BNode.link;
@@ -1632,19 +1660,19 @@ public class LinkedList {
                     ANode = ANode.link;
                     BNode = BNode.link;
                 } else {
-                    coefSum = -BNode.data.coef;
+                    coefSum = -BNode.data.getCoef();
                     newList.addNode(degreeB, coefSum);
                     BNode = BNode.link;
                 }
             }
             while (ANode != null) {
-                coefSum = ANode.data.coef;
-                newList.addNode(ANode.data.degree, coefSum);
+                coefSum = ANode.data.getCoef();
+                newList.addNode(ANode.data.getDegree(), coefSum);
                 ANode = ANode.link;
             }
             while (BNode != null) {
-                coefSum = -BNode.data.coef;
-                newList.addNode(BNode.data.degree, coefSum);
+                coefSum = -BNode.data.getCoef();
+                newList.addNode(BNode.data.getDegree(), coefSum);
                 BNode = BNode.link;
             }
         }
@@ -1680,6 +1708,7 @@ public class LinkedListExample {
         LinkedList B = new LinkedList();
         B = AList.SubList(BList);
         B.disPlayLinkedList();
+
     }
 }
 ```

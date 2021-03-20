@@ -1,9 +1,13 @@
-package ch3.SingleLinkedList;
+package ch3.singlelinkedlist;
 
 public class LinkedListNode {
     LinkedListNode(int data){
         this.data = data;
     }
-    protected int data;
-    protected LinkedListNode link;
+    private int data;
+    LinkedListNode link;
+    int getData(){
+        return data;
+    }
+
 }

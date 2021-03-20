@@ -1,8 +1,8 @@
-package ch3.Sol2;
+package ch3.sol2;
 
 public class LinkedList {
-    LinkedListNode head;
-    int currentCouunt;
+    private LinkedListNode head;
+    private int currentCouunt;
     LinkedList(){
         head = null;
         this.currentCouunt = 0;
@@ -26,13 +26,13 @@ public class LinkedList {
         for(int i=0;i<index;i++){
             tempNode = tempNode.link;
         }
-        return tempNode.data;
+        return tempNode.getData();
     }
     double sum(){
         double scoresum = 0;
         LinkedListNode tempNode = head;
         for(int i=0;i<currentCouunt;i++){
-            scoresum += tempNode.data;
+            scoresum += tempNode.getData();
             tempNode = tempNode.link;
         }
         return scoresum;

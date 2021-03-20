@@ -17,10 +17,10 @@ public class HashTableExample {
 
         while(true){
             System.out.println("아이디와 비밀번호를 입력해주세요");
-            System.out.println("아이디: ");
+            System.out.print("아이디: ");
             String id = scanner.nextLine();
 
-            System.out.println("비밀번호: ");
+            System.out.print("비밀번호: ");
             String password = scanner.nextLine();
             System.out.println();
 

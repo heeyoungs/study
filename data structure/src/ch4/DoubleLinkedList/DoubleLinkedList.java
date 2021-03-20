@@ -1,7 +1,7 @@
-package ch4.DoubleLinkedList;
+package ch4.doublelinkedlist;
 
-import ch3.SingleLinkedList.DataException;
-import ch3.SingleLinkedList.PositionException;
+import ch3.singlelinkedlist.DataException;
+import ch3.singlelinkedlist.PositionException;
 
 public class DoubleLinkedList {
     private int currentCount;
@@ -89,7 +89,7 @@ public class DoubleLinkedList {
         DoubleLinkedListNode tempNode = head;
         int nodeCount = 0;
         while(tempNode != null){
-            if(tempNode.data == data){
+            if(tempNode.getData() == data){
                 break;
             }
             tempNode = tempNode.Rlink;
@@ -122,7 +122,7 @@ public class DoubleLinkedList {
         DoubleLinkedListNode tempNode = head;
         System.out.println("disPlayList");
         for(int i=0;i<currentCount;i++){
-            System.out.println("인덱스 " + i + "의 값 : " + tempNode.data);
+            System.out.println("인덱스 " + i + "의 값 : " + tempNode.getData());
             tempNode = tempNode.Rlink;
         }
     }
@@ -131,7 +131,7 @@ public class DoubleLinkedList {
         for(int i=0;i<index;i++){
             tempNode = tempNode.Rlink;
         }
-        return tempNode.data;
+        return tempNode.getData();
     }
     int getDoubleLinkedListLength(){
         return currentCount;

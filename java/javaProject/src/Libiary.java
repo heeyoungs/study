@@ -1,18 +1,18 @@
 import java.util.Scanner;
 
 public class Libiary {
-    public static void main(String[] args){
-        BookInfo.bookList.add(new Book("java",5));
-        BookInfo.bookList.add(new Book("algorithm",1));
-        BookInfo.bookList.add(new Book("dataStructure",4));
+    public static void main(String[] args) {
+        BookInfo.bookList.add(new Book("java", 5));
+        BookInfo.bookList.add(new Book("algorithm", 1));
+        BookInfo.bookList.add(new Book("dataStructure", 4));
         Owner owenr = new Owner();
         Customer customer = new Customer();
         boolean run = true;
         int who;
         Scanner scanner = new Scanner(System.in);
         System.out.println("안녕하세요. 자바 도서관에 오신것을 환영합니다.");
-        while(run) {
-        System.out.print("관리자는 1번, 손님은 2번, 종료하시려면 0번을 입력해주세요 : ");
+        while (run) {
+            System.out.print("관리자는 1번, 손님은 2번, 종료하시려면 0번을 입력해주세요 : ");
             try {
                 who = scanner.nextInt();
             } catch (Exception e) {

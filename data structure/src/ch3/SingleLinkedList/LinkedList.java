@@ -1,4 +1,4 @@
-package ch3.SingleLinkedList;
+package ch3.singlelinkedlist;
 
 public class LinkedList {
     private LinkedListNode head;
@@ -63,7 +63,7 @@ public class LinkedList {
         LinkedListNode tempNode = head;
         LinkedListNode tempPreNode = null;
         while(tempNode != null){ // 값이 같은 노드 찾기
-            if(tempNode.data == data){
+            if(tempNode.getData() == data){
                 break;
             }
             tempPreNode= tempNode;
@@ -86,7 +86,7 @@ public class LinkedList {
         for(int i=0;i<index;i++){
             tempNode = tempNode.link;
         }
-        return tempNode.data;
+        return tempNode.getData();
     }
     int getLinkedListLength(){ // 1-2번
         int count=0;
@@ -116,7 +116,7 @@ public class LinkedList {
         System.out.println("iterateList");
 
         while(tempNode != null){
-            value = tempNode.data;
+            value = tempNode.getData();
             System.out.println("인덱스 " + count + "의 값 : " + value);
             tempNode = tempNode.link;
             count++;

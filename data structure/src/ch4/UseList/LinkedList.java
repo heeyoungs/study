@@ -1,6 +1,4 @@
-package ch4.UseList;
-
-import ch3.SingleLinkedList.PositionException;
+package ch4.uselist;
 
 public class LinkedList {
     private LinkedListNode head;
@@ -16,48 +14,16 @@ public class LinkedList {
             head = newNode;
         }
         else{
-            while(tempNode.link != null){
-                tempNode=tempNode.link;
+            while(tempNode.getLink() != null){
+                tempNode=tempNode.getLink();
             }
-            tempNode.link = newNode;
+            tempNode.setLink(newNode);
         }
         currentCount++;
     }
     void addNode(int degree,double coef){
         DataBox dataBox = new DataBox(degree,coef);
         addNode(dataBox);
-    }
-    void removeNode(int index)throws PositionException{
-        LinkedListNode tempNode = head;
-        LinkedListNode tempPreNode = null;
-        if(index < 0 || index > currentCount-1) {
-            throw new PositionException("잘못된 인덱스 값");
-        }
-        else if(index == 0){
-            tempNode = tempNode.link;
-            this.head = tempNode;
-        }
-        else{
-            for(int i=0;i<index;i++){
-                tempPreNode= tempNode;
-                tempNode=tempNode.link;
-            }
-            tempPreNode.link = tempNode.link;
-        }
-        currentCount--;
-    }
-    DataBox getLinkedListData(int index)throws PositionException{
-        LinkedListNode tempNode = head;
-        if(index > currentCount-1){
-            throw new PositionException("인덱스 에러");
-        }
-        for(int i=0;i<index;i++){
-            tempNode = tempNode.link;
-        }
-        return tempNode.data;
-    }
-    int getLinkedListLength(){
-        return currentCount;
     }
     void disPlayLinkedList(){
         LinkedListNode tempNode = head;
@@ -70,13 +36,13 @@ public class LinkedList {
             if(i>0){
                 System.out.print(" + ");
             }
-            if(tempNode.data.degree == 0) {
-                System.out.print(tempNode.data.coef);
+            if(tempNode.getData().getDegree() == 0) {
+                System.out.print(tempNode.getData().getCoef());
             }else{
-                System.out.print(tempNode.data.coef + "x^" + tempNode.data.degree);
+                System.out.print(tempNode.getData().getCoef() + "x^" + tempNode.getData().getDegree());
             }
             i++;
-            tempNode = tempNode.link;
+            tempNode = tempNode.getLink();
 
         }
         System.out.println();
@@ -89,37 +55,37 @@ public class LinkedList {
 
         if(ANode != null && BNode != null) {
             while (ANode != null && BNode != null) {
-                int degreeA = ANode.data.degree;
-                int degreeB = BNode.data.degree;
+                int degreeA = ANode.getData().getDegree();
+                int degreeB = BNode.getData().getDegree();
                 if (degreeA > degreeB) {
-                    coefSum = ANode.data.coef;
+                    coefSum = ANode.getData().getCoef();
                     newList.addNode(degreeA, coefSum);
-                    ANode = ANode.link;
+                    ANode = ANode.getLink();
                 } else if (degreeA == degreeB) {
-                    coefSum = ANode.data.coef + BNode.data.coef;
+                    coefSum = ANode.getData().getCoef() + BNode.getData().getCoef();
                     if(coefSum == 0){
-                        ANode = ANode.link;
-                        BNode = BNode.link;
+                        ANode = ANode.getLink();
+                        BNode = BNode.getLink();
                         break;
                     }
                     newList.addNode(degreeA, coefSum);
-                    ANode = ANode.link;
-                    BNode = BNode.link;
+                    ANode = ANode.getLink();
+                    BNode = BNode.getLink();
                 } else {
-                    coefSum = BNode.data.coef;
+                    coefSum = BNode.getData().getCoef();
                     newList.addNode(degreeB, coefSum);
-                    BNode = BNode.link;
+                    BNode = BNode.getLink();
                 }
             }
             while (ANode != null) {
-                coefSum = ANode.data.coef;
-                newList.addNode(ANode.data.degree, coefSum);
-                ANode = ANode.link;
+                coefSum = ANode.getData().getCoef();
+                newList.addNode(ANode.getData().getDegree(), coefSum);
+                ANode = ANode.getLink();
             }
             while (BNode != null) {
-                coefSum = BNode.data.coef;
-                newList.addNode(BNode.data.degree, coefSum);
-                BNode = BNode.link;
+                coefSum = BNode.getData().getCoef();
+                newList.addNode(BNode.getData().getDegree(), coefSum);
+                BNode = BNode.getLink();
             }
         }
         else{
@@ -136,37 +102,37 @@ public class LinkedList {
 
         if(ANode != null && BNode != null) {
             while (ANode != null && BNode != null) {
-                int degreeA = ANode.data.degree;
-                int degreeB = BNode.data.degree;
+                int degreeA = ANode.getData().getDegree();
+                int degreeB = BNode.getData().getDegree();
                 if (degreeA > degreeB) {
-                    coefSum = ANode.data.coef;
+                    coefSum = ANode.getData().getCoef();
                     newList.addNode(degreeA, coefSum);
-                    ANode = ANode.link;
+                    ANode = ANode.getLink();
                 } else if (degreeA == degreeB) {
-                    coefSum = ANode.data.coef - BNode.data.coef;
+                    coefSum = ANode.getData().getCoef() - BNode.getData().getCoef();
                     if(coefSum == 0){
-                        ANode = ANode.link;
-                        BNode = BNode.link;
+                        ANode = ANode.getLink();
+                        BNode = BNode.getLink();
                         break;
                     }
                     newList.addNode(degreeA, coefSum);
-                    ANode = ANode.link;
-                    BNode = BNode.link;
+                    ANode = ANode.getLink();
+                    BNode = BNode.getLink();
                 } else {
-                    coefSum = -BNode.data.coef;
+                    coefSum = -BNode.getData().getCoef();
                     newList.addNode(degreeB, coefSum);
-                    BNode = BNode.link;
+                    BNode = BNode.getLink();
                 }
             }
             while (ANode != null) {
-                coefSum = ANode.data.coef;
-                newList.addNode(ANode.data.degree, coefSum);
-                ANode = ANode.link;
+                coefSum = ANode.getData().getCoef();
+                newList.addNode(ANode.getData().getDegree(), coefSum);
+                ANode = ANode.getLink();
             }
             while (BNode != null) {
-                coefSum = -BNode.data.coef;
-                newList.addNode(BNode.data.degree, coefSum);
-                BNode = BNode.link;
+                coefSum = -BNode.getData().getCoef();
+                newList.addNode(BNode.getData().getDegree(), coefSum);
+                BNode = BNode.getLink();
             }
         }
         else{
