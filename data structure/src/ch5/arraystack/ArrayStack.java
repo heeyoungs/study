@@ -11,43 +11,41 @@ public class ArrayStack{
         this.currentCount = 0;
         this.maxCount = count;
         this.element = new ArrayStackNode[count];
-        for (int i = 0; i < count; i++) {
-            element[i] = new ArrayStackNode();
-        }
     } // 5장 5번 문제
     int pushArrayStack(char data){
         if(currentCount == maxCount){ // 유효성 점검, 배열이 꽉찼는지
             return -1;
         }
+        element[currentCount] = new ArrayStackNode();
         element[currentCount].setData(data);
         currentCount++;
         return 1;
     }
-    char peekArrayStack(){
+    ArrayStackNode peekArrayStack(){
         ArrayStackNode temp = null;
         if(isArrayStackEmpty() == 1) { // 유효성 검사,배열이 비었는지
-            return 'n';
+            return null;
         }
         temp = element[currentCount-1];
-        return temp.getData();
+        return temp;
     }
-    char popArrayStack(){
+    ArrayStackNode popArrayStack(){
         ArrayStackNode temp = null;
-        char data;
+        ArrayStackNode data;
         if(isArrayStackEmpty() == 1){ // 유효성 검사,배열이 비었는지
-            return 'n';
+            return null;
         }
-        temp = element[currentCount-1];
-        data = temp.getData();
         currentCount--;
-        element[currentCount].setData('0');
+        temp = element[currentCount];
+        data = temp;
+        element[currentCount]=null;
         return data;
     }
     void deleteArrayStack(){
         if(isArrayStackEmpty() == 1) return;
         while(true) {
             currentCount--;
-            element[currentCount].setData('0');
+            element[currentCount]=null;
             if(currentCount == 0){ break; }
         }
     }
@@ -56,6 +54,10 @@ public class ArrayStack{
         return -1;
     }
     void disPlayArrayStack(){
+        if(currentCount == 0){
+            System.out.println("스택이 비어있습니다.");
+            return;
+        }
         System.out.println("스택 크기: " + maxCount + ", 현재 노드 개수: " + currentCount);
         for(int i = maxCount-1;i >= currentCount ;i--){
             System.out.println(i + "-" + "Empty");

@@ -16,11 +16,11 @@ public class ArrayStackExample {
         stack.disPlayArrayStack();
         System.out.println();
 
-        System.out.println("Pop 값-" + stack.popArrayStack());
+        System.out.println("Pop 값-" + stack.popArrayStack().getData());
         stack.disPlayArrayStack();
         System.out.println();
 
-        System.out.println("Peek 값-" + stack.peekArrayStack());
+        System.out.println("Peek 값-" + stack.peekArrayStack().getData());
         stack.disPlayArrayStack();
         System.out.println();
 
