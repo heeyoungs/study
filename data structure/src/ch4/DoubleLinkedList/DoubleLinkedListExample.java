@@ -8,34 +8,35 @@ public class DoubleLinkedListExample {
         DoubleLinkedList pList = new DoubleLinkedList();
 
         try {
-            pList.addNode(0,10);
-            pList.addNode( 1,20);
-            pList.addNode(2,400);
-            pList.addNode(30);
+            pList.addNode(10);
+            pList.addNode( 20);
+            pList.addNode(400);
+            pList.addNode(1, 30);
         }catch (PositionException e){
             e.printStackTrace();
             return;
         }
+        System.out.print(pList.getDoubleLinkedListData(1));
 
         pList.disPlayList();
-
-        try{
-            pList.removeNodeByIndex(2);
-        }catch (PositionException e){
-            e.printStackTrace();
-            return;
-        }
-
-        System.out.println("이중 연결 리스트 현재 노드의 개수 : " + pList.getDoubleLinkedListLength());
-
-        try{
-            pList.removeNodeByData(30);
-        }catch (DataException e){
-            e.printStackTrace();
-            return;
-        }
-
-        pList.disPlayList();
-        System.out.println("인덱스 0의 값 : " + pList.getDoubleLinkedListData(0));
+//
+//        try{
+//            pList.removeNodeByIndex(2);
+//        }catch (PositionException e){
+//            e.printStackTrace();
+//            return;
+//        }
+//
+//        System.out.println("이중 연결 리스트 현재 노드의 개수 : " + pList.getDoubleLinkedListLength());
+//
+//        try{
+//            pList.removeNodeByData(30);
+//        }catch (DataException e){
+//            e.printStackTrace();
+//            return;
+//        }
+//
+//        pList.disPlayList();
+//        System.out.println("인덱스 0의 값 : " + pList.getDoubleLinkedListData(0));
     }
 }

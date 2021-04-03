@@ -3,16 +3,16 @@ package ch7.linkedqueue;
 public class LinkedQueueNode {
     private char data;
     private LinkedQueueNode link;
-    LinkedQueueNode(char data){
+    public LinkedQueueNode(char data){
         this.data = data;
     }
-    char getData(){
+    public char getData(){
         return data;
     }
-    void setLink(LinkedQueueNode link){
+    public void setLink(LinkedQueueNode link){
         this.link = link;
     }
-    LinkedQueueNode getLink(){
+    public LinkedQueueNode getLink(){
         return link;
     }
 }

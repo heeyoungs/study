@@ -8,14 +8,14 @@ public class LinkedStackExample {
         System.out.print("수식을 입력해 주세요 : ");
         String input = scanner.nextLine();
         ExprToken pExprToken[] = new ExprToken[100];
-        char[] changeToken = null;
-        int tokenCount = 0;
+        int tokenCount = 0; // 토큰의 개수
         int index = 0;
+        char[] changeToken = null;
         for(int i=0;i<input.length();i++){
             switch (input.charAt(i)){
                 case '(':
                     if (changeToken != null) {
-                        char[] ttt = new char[index];
+                        char[] ttt = new char[index]; // changeToken에 저장된 char타입 숫자를 인덱스 개수에 맞게 다시 복사
                         for (int k = 0; k < index; k++) {
                             ttt[k] = changeToken[k];
                         }
@@ -209,13 +209,11 @@ public class LinkedStackExample {
 
         System.out.println("Infix Expression: " + input);
         System.out.print("Postfix Expression: ");
-
         ExprToken[] calc = convertInfixToPostfix(pExprToken,tokenCount);
-        System.out.println();
 
+        System.out.println();
         calcExpr(calc,tokenCalcCount);
     }
-    static int tokenCalcCount = 0;
     static int intStackPrecedence(PrecedenceType oper){
         switch (oper){
             case lparen:
@@ -271,6 +269,7 @@ public class LinkedStackExample {
                 break;
         }
     }
+    static int tokenCalcCount = 0;
     static ExprToken[] convertInfixToPostfix(ExprToken[] pExprTokens , int tokenCount){
         LinkedStack stack = new LinkedStack();
         LinkedStackNode ANode = null;

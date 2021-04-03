@@ -7,8 +7,8 @@ public class ArrayQueue {
     private int maxCount;
     private int front;
     private int rear;
-    ArrayQueueNode[] element = null;
-    ArrayQueue(int count) throws IndexException{
+    private ArrayQueueNode[] element = null;
+    public ArrayQueue(int count) throws IndexException{
         if(count<0){
             throw new IndexException("0보다 작은 숫자가 입력됨");
         }
@@ -18,7 +18,7 @@ public class ArrayQueue {
         this.rear = -1;
         this.element = new ArrayQueueNode[count];
     }
-    int enqueueAQ(char data){
+    public int enqueueAQ(char data){
         if(isArrayQueueFull() == 1){ // 배열이 꽉차 있다!
             return -1;
         }
@@ -28,7 +28,7 @@ public class ArrayQueue {
         currentCount++;
         return 1;
     }
-    ArrayQueueNode dequeueAQ(){
+    public ArrayQueueNode dequeueAQ(){
         ArrayQueueNode data = null;
         if(isArrayQueueEmpty() == 1){
             return null;
@@ -41,19 +41,19 @@ public class ArrayQueue {
         currentCount--;
         return data;
     }
-    ArrayQueueNode peekAQ(){
+    public ArrayQueueNode peekAQ(){
         if(isArrayQueueEmpty() == 1){
             return null;
         }
         return element[front+1];
     }
-    int isArrayQueueEmpty(){
+    public int isArrayQueueEmpty(){
         if(currentCount == 0){
             return 1;
         }
         return -1;
     }
-    int isArrayQueueFull(){
+    public int isArrayQueueFull(){
         if(rear == maxCount-1 ||  currentCount == maxCount){
             return 1;
         }
@@ -61,7 +61,7 @@ public class ArrayQueue {
             return -1;
         }
     }
-    void deleteAQ(){
+    public void deleteAQ(){
         for(int i=0;i<maxCount;i++){
             element[i] = null;
         }
@@ -69,7 +69,7 @@ public class ArrayQueue {
         rear = -1;
         currentCount = 0;
     }
-    void disPlayAQ(){
+    public void disPlayAQ(){
         if(currentCount==0){
             System.out.println("큐가 비어있습니다.");
             return;

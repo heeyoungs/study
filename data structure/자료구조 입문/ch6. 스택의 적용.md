@@ -440,6 +440,42 @@ static void printToken(ExprToken element){
 convertInfixToPostfix() 메소드
 
 ```java
+public class LinkedStackExample {
+    public static void main(String[] args){
+        ExprToken[] pExprTokens = new ExprToken[9];
+        for(int i=0;i<9;i++){
+            pExprTokens[i] = new ExprToken();
+        }
+
+        // 2 - ( 3 + 4 ) * 5
+        pExprTokens[0].setType(PrecedenceType.operand);
+        pExprTokens[0].setValue(2);
+        pExprTokens[1].setType(PrecedenceType.minus);
+        pExprTokens[1].setValue(0);
+        pExprTokens[2].setType(PrecedenceType.lparen);
+        pExprTokens[2].setValue(0);
+        pExprTokens[3].setType(PrecedenceType.operand);
+        pExprTokens[3].setValue(3);
+        pExprTokens[4].setType(PrecedenceType.plus);
+        pExprTokens[4].setValue(0);
+        pExprTokens[5].setType(PrecedenceType.operand);
+        pExprTokens[5].setValue(4);
+        pExprTokens[6].setType(PrecedenceType.rparen);
+        pExprTokens[6].setValue(0);
+        pExprTokens[7].setType(PrecedenceType.multiply);
+        pExprTokens[7].setValue(0);
+        pExprTokens[8].setType(PrecedenceType.operand);
+        pExprTokens[8].setValue(5);
+
+        System.out.println("Infix Expression: 2.0 - ( 3.0 + 4.0 ) * 5.0");
+        System.out.print("Postfix Expression: ");
+
+        convertInfixToPostfix(pExprTokens, 9);
+    }
+}
+```
+
+```java
 static void convertInfixToPostfix(ExprToken[] pExprTokens ,int tokenCount){
     LinkedStack stack = new LinkedStack();
     LinkedStackNode ANode = null;
@@ -451,7 +487,7 @@ static void convertInfixToPostfix(ExprToken[] pExprTokens ,int tokenCount){
             case operand:
                 System.out.print(pExprTokens[i].getValue() + " ");
                 break;
-            case rparen:
+            case rparen: // )
                 ANode = stack.popLinkedStack();
                 while((ANode != null) && (ANode.getData().getType() != PrecedenceType.lparen)){
                     printToken(ANode.getData());
@@ -462,7 +498,7 @@ static void convertInfixToPostfix(ExprToken[] pExprTokens ,int tokenCount){
                 }
                 break;
             default:
-                while(stack.isLinkedStackEmpty() == -1){
+                while(stack.isLinkedStackEmpty() == -1){ // 스택이 비어있지 않으면 실행
                     inStackTokenType = stack.peekLinkedStack().getData().getType();
                     if(outStackPrecedence(tokenType) <= intStackPrecedence(inStackTokenType)){
                         ANode = stack.popLinkedStack();

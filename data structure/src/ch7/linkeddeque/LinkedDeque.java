@@ -1,15 +1,15 @@
 package ch7.linkeddeque;
 
 public class LinkedDeque {
-    int currentCount;
-    LinkedDequeNode front;
-    LinkedDequeNode rear;
-    LinkedDeque(){
+    private int currentCount;
+    private LinkedDequeNode front;
+    private LinkedDequeNode rear;
+    public LinkedDeque(){
         currentCount = 0;
         front = null;
         rear = null;
     }
-    int insertFront(char data){
+    public int insertFront(char data){
         LinkedDequeNode newNode = new LinkedDequeNode(data);
         if(currentCount == 0){
             rear = newNode;
@@ -22,7 +22,7 @@ public class LinkedDeque {
         currentCount++;
         return 1;
     }
-    int inserRear(char data){
+    public int inserRear(char data){
         LinkedDequeNode newNode = new LinkedDequeNode(data);
         if(currentCount == 0){
             rear = newNode;
@@ -35,7 +35,7 @@ public class LinkedDeque {
         currentCount++;
         return 1;
     }
-    LinkedDequeNode deleteFront(){
+    public LinkedDequeNode deleteFront(){
         LinkedDequeNode tempNode = null;
         if(isDQEmpty() == 1){
             return null;
@@ -52,7 +52,7 @@ public class LinkedDeque {
         currentCount--;
         return tempNode;
     }
-    LinkedDequeNode deleteRear(){
+    public LinkedDequeNode deleteRear(){
         LinkedDequeNode tempNode = null;
         if(isDQEmpty() == 1){
             return null;
@@ -74,19 +74,19 @@ public class LinkedDeque {
         currentCount--;
         return tempNode;
     }
-    LinkedDequeNode peekFront(){
+    public LinkedDequeNode peekFront(){
         if(isDQEmpty() == 1){
             return null;
         }
         return front;
     }
-    LinkedDequeNode peekRear(){
+    public LinkedDequeNode peekRear(){
         if(isDQEmpty() == 1){
             return null;
         }
         return rear;
     }
-    int isDQEmpty(){
+    public int isDQEmpty(){
         if(currentCount == 0){
             return 1;
         }
@@ -94,12 +94,12 @@ public class LinkedDeque {
             return -1;
         }
     }
-    void deleteDQ(){
+    public void deleteDQ(){
         front = null;
         rear = null;
         currentCount = 0;
     }
-    void disPlayDQ(){
+    public void disPlayDQ(){
         LinkedDequeNode tempNode = front;
         int i = 0;
         System.out.println("현재 노드 개수: " + currentCount);

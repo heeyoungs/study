@@ -1,15 +1,15 @@
 package ch7.linkedqueue;
 
 public class LinkedQueue {
-    int currentCount;
-    LinkedQueueNode front;
-    LinkedQueueNode rear;
-    LinkedQueue(){
+    private int currentCount;
+    private LinkedQueueNode front;
+    private LinkedQueueNode rear;
+    public LinkedQueue(){
         currentCount = 0;
         front = null;
         rear = null;
     }
-    int enqueueLQ(char data){
+    public int enqueueLQ(char data){
         LinkedQueueNode newNode = new LinkedQueueNode(data);
         if(currentCount == 0){
              rear = newNode;
@@ -22,7 +22,7 @@ public class LinkedQueue {
         currentCount++;
         return 1;
     }
-    LinkedQueueNode dequeueLQ(){
+    public LinkedQueueNode dequeueLQ(){
         LinkedQueueNode tempNode = null;
         if(isLinkedQueueEmpty() == 1){
             return null;
@@ -39,13 +39,13 @@ public class LinkedQueue {
         currentCount--;
         return tempNode;
     }
-    LinkedQueueNode peekLQ(){
+    public LinkedQueueNode peekLQ(){
         if(isLinkedQueueEmpty() == 1){
             return null;
         }
         return front;
     }
-    int isLinkedQueueEmpty(){
+    public int isLinkedQueueEmpty(){
         if(currentCount == 0){
             return 1;
         }
@@ -53,12 +53,12 @@ public class LinkedQueue {
             return -1;
         }
     }
-    void deleteLQ(){
+    public void deleteLQ(){
         front = null;
         rear = null;
         currentCount = 0;
     }
-    void disPlayLQ(){
+    public void disPlayLQ(){
         LinkedQueueNode tempNode = front;
         int i = 0;
         System.out.println("현재 노드 개수: " + currentCount);

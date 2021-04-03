@@ -66,7 +66,7 @@ public class LinkedList {
                     if(coefSum == 0){
                         ANode = ANode.getLink();
                         BNode = BNode.getLink();
-                        break;
+                        continue;
                     }
                     newList.addNode(degreeA, coefSum);
                     ANode = ANode.getLink();
@@ -113,7 +113,7 @@ public class LinkedList {
                     if(coefSum == 0){
                         ANode = ANode.getLink();
                         BNode = BNode.getLink();
-                        break;
+                        continue;
                     }
                     newList.addNode(degreeA, coefSum);
                     ANode = ANode.getLink();

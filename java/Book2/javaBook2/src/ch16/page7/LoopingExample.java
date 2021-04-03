@@ -21,6 +21,6 @@ public class LoopingExample {
 		System.out.println("[forEach()를 마지막에 호출한 경우]");
 		Arrays.stream(intArr)
 			.filter(a -> a%2==0)
-			.forEach(n -> System.out.println(n)); //������
+			.forEach(n -> System.out.println(n));
 	}
 }

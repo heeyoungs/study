@@ -47,7 +47,7 @@ public class DoubleLinkedList {
             newNode.Rlink = tempNode.Rlink;
             tempNode.Rlink = newNode;
             newNode.Llink = tempNode;
-            tempNode.Rlink.Llink = newNode;
+            newNode.Rlink.Llink = newNode;
         }
         else{ // 마지막일 경우
             while(tempNode.Rlink!=null){

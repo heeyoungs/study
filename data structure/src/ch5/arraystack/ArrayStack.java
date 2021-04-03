@@ -1,6 +1,7 @@
 package ch5.arraystack;
 
 public class ArrayStack{
+
     private int currentCount;
     private int maxCount;
     private ArrayStackNode[] element = null;
