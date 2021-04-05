@@ -2,6 +2,8 @@ package book;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Library {
     public static List<Book> bookList = new LinkedList<>(); // 도서관 책 목록
@@ -11,4 +13,15 @@ public class Library {
         bookList.stream()
                 .forEach(s -> System.out.println("책 이름: " + s.getBookName() + " - 저자: " + s.getBookWriter()));
     } // 책 확인하기
+//    public static void writerByBookSort() {
+//        Map<String, List<String>> writer = bookList.stream()
+//                .collect(
+//                        Collectors.groupingBy(
+//                                Book::getBookWriter,
+//                                Collectors.mapping(Book::getBookWriter, Collectors.toList())
+//                        )
+//                );
+//        System.out.print("\n작가: d");
+//        writer.get().stream().forEach(s->System.out.print(s + " "));
+//    }
 }

@@ -2,6 +2,8 @@ package ch11.internalarraygraph;
 
 import ch3.singlelinkedlist.PositionException;
 
+import java.util.Stack;
+
 public class ArrayGraph {
     private int graphType;
     private int nodeCount;
@@ -34,14 +36,14 @@ public class ArrayGraph {
             }
         }
     }
-    int addEdgeAG(int fromNode,int toNode){
-        if(addEdgeInternalAG(fromNode,toNode) == -1){
+    int addEdgeLG(int fromNode, int toNode){
+        if(addEdgeInternalLG(fromNode,toNode) == -1){
             return -1;
         }
-        addEdgeInternalAG(fromNode, toNode);
-        return addEdgeInternalAG(toNode,fromNode);
+        addEdgeInternalLG(fromNode, toNode);
+        return addEdgeInternalLG(toNode,fromNode);
     }
-    int addEdgeInternalAG(int fromNode,int toNode){
+    int addEdgeInternalLG(int fromNode, int toNode){
         switch (graphType){
             case 1:
                 if (checkVertexValid(fromNode) && checkVertexValid(toNode)){
@@ -63,13 +65,13 @@ public class ArrayGraph {
         }
         return 0;
     }
-    int removeEdgeAG(int fromNode,int toNode){
-        if(removeEdgeAG(fromNode,toNode)==-1){
+    int removeEdgeLG(int fromNode, int toNode){
+        if(removeEdgeLG(fromNode,toNode)==-1){
             return -1;
         }
-        return removeEdgeAG(toNode,fromNode);
+        return removeEdgeLG(toNode,fromNode);
     }
-    int removeInternalAg(int fromNode,int toNode){
+    int removeInternalLg(int fromNode, int toNode){
         switch (graphType){
             case 1:
                 if (checkVertexValid(fromNode) && checkVertexValid(toNode)){
@@ -103,7 +105,7 @@ public class ArrayGraph {
         }
         return false;
     }
-    int getEdgeiAG(int fromNode, int toNode){
+    int getEdgeLG(int fromNode, int toNode){
         if(checkVertexValid(fromNode)&&checkVertexValid(toNode)){
             LinkedList list = ppAdjEdge[fromNode];
             int count = list.getLinkedListLength();
@@ -115,7 +117,7 @@ public class ArrayGraph {
         }
         return -1;
     }
-    void displayGraphDAG(ArrayGraph graph){
+    void displayGraphDLG(ArrayGraph graph){
         switch (graphType){
             case 1:
                 for(int i=0;i<nodeCount;i++) {
@@ -128,7 +130,7 @@ public class ArrayGraph {
             case 2:
                 for (int i=0; i<nodeCount; i++){
                     for(int j=0; j<nodeCount; j++){
-                        if(graph.getEdgeiAG(i,j) == 1){
+                        if(graph.getEdgeLG(i,j) == 1){
                             System.out.print("1 ");
                         }
                         else{
@@ -140,7 +142,7 @@ public class ArrayGraph {
                 break;
         }
     }
-    void deleteGraphDAG(){
+    void deleteGraphDLG(){
         switch (graphType){
             case 1:
                 nodeCount = 0;
@@ -158,7 +160,7 @@ public class ArrayGraph {
         System.out.println("노드-" + startNode + " 방문");
         for ( i=0; i<nodeCount; i++) {
             if ( startNode != i ) {
-                if ( -1 != getEdgeiAG(startNode, i)) {
+                if ( -1 != getEdgeLG(startNode, i)) {
                     if ( 0 == pVisit[i] ) {
                         traversalDFS(i, pVisit);
                     }
@@ -184,7 +186,7 @@ public class ArrayGraph {
                 System.out.println("노드-" + node + " 방문");
                 for ( i=0; i<nodeCount; i++) {
                     if ( node != i ) {
-                        if ( getEdgeiAG(node, i) == 1 ) {
+                        if ( getEdgeLG(node, i) == 1 ) {
                             if ( pVisit[i] == 0 ) {
                                 pVisit[i] = 1;
                                 queue.enqueueLQ(i);
@@ -197,4 +199,23 @@ public class ArrayGraph {
         }
         queue.deleteLQ();
     }
+//    int addEdgewithWeightLG(int fromNode, int toNode,int weight){
+//        if(addEdgeInternalLG(fromNode,toNode) == -1){
+//            return -1;
+//        }
+//        addEdgeInternalLG(fromNode, toNode);
+//        return addEdgeInternalLG(toNode,fromNode);
+//    }
+//    int getEdgeWeightLG(int fromNode, int toNode){
+//        if(checkVertexValid(fromNode)&&checkVertexValid(toNode)){
+//            LinkedList list = ppAdjEdge[fromNode];
+//            int count = list.getLinkedListLength();
+//            for(int i = 0;i < count; i++){
+//                if(list.getNodeData(i) == toNode){
+//                    return 1;
+//                }
+//            }
+//        }
+//        return -1;
+//    }
 }

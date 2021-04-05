@@ -13,6 +13,7 @@ public class Application {
         Library.bookList.add(new Book("java", "j"));
         Library.bookList.add(new Book("algorithm", "a"));
         Library.bookList.add(new Book("data structure", "d"));
+        Library.bookList.add(new Book("design pattern","d"));
 
         Scanner scanner = new Scanner(System.in);
         Owner owner = new Owner();
@@ -51,6 +52,7 @@ public class Application {
                                 System.out.println("3.책 제거하기");
                                 System.out.println("4.도서관의 책 목록 확인하기");
                                 System.out.println("5.책 정리하기");
+//                                System.out.println("6.작가별로 보여주기");
                                 System.out.println("0.관리자 모드 종료하기");
                                 System.out.print("입력 : ");
                                 try {
@@ -75,6 +77,9 @@ public class Application {
                                         Collections.sort(Library.bookList, new BookSort());
                                         System.out.println("책을 가나다 순으로 정리합니다.");
                                         break;
+//                                    case 6:
+//                                        Library.writerByBookSort();
+//                                        break;
                                     case 0:
                                         ownerRun = false;
                                         break;
@@ -105,6 +110,7 @@ public class Application {
                         System.out.println("1.책 추가 요청하기");
                         System.out.println("2.책 빌려가기");
                         System.out.println("3.책 목록 확인하기");
+                        //System.out.println("4.작가별로 보여주기");
                         System.out.println("0.손님 모드 종료하기");
                         System.out.print("입력 : ");
                         try {
@@ -122,6 +128,9 @@ public class Application {
                             case 3:
                                 Library.checkBook();
                                 break;
+//                            case 4:
+//                                Library.writerByBookSort();
+//                                break;
                             case 0:
                                 customerRun = false;
                                 break;
