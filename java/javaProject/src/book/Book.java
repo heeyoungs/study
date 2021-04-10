@@ -17,6 +17,7 @@ public class Book {
         return bookName;
     }
 
+    // 동일한 책의 기준, 책 이름과 작가가 동일
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Book) {
@@ -25,10 +26,5 @@ public class Book {
         } else {
             return false;
         }
-    }
-
-    @Override
-    public int hashCode(){
-        return bookName.hashCode();
     }
 }

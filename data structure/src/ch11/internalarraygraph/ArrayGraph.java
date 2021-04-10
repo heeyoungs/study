@@ -2,8 +2,6 @@ package ch11.internalarraygraph;
 
 import ch3.singlelinkedlist.PositionException;
 
-import java.util.Stack;
-
 public class ArrayGraph {
     private int graphType;
     private int nodeCount;

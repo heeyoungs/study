@@ -8,6 +8,7 @@ import java.util.*;
 public class Customer {
     private Scanner scanner = new Scanner(System.in);
 
+    // 손님의 기능
     public void addBook() {
         System.out.println("책 추가를 요청합니다.");
         System.out.print("책 이름을 입력해주세요 : ");

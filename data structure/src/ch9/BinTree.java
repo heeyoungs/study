@@ -111,32 +111,34 @@ public class BinTree {
         }
 
         queue.enqueueLQ(pCurrentNode); // 인큐부분
-        lOTBTN(pCurrentNode, queue);
 
         while (true) { // 디큐부분
             if (queue.isLinkedQueueEmpty() == 1) {
                 break;
             } else {
-                linkedQueueNode = queue.dequeueLQ();
-                if (linkedQueueNode != null) {
-                    pCurrentNode = linkedQueueNode.getData();
-                    System.out.print(pCurrentNode.getData());
+                BinTreeNode tt = queue.dequeueLQ();
+                System.out.print(tt.getData());
+                if (tt.getpLeftChild() != null) {
+                    queue.enqueueLQ(tt.getpLeftChild());
+                }
+                if (tt.getpRightChild() != null) {
+                    queue.enqueueLQ(tt.getpRightChild());
                 }
             }
         }
         queue.deleteLQ();
     } // 레벨
 
-    private void lOTBTN(BinTreeNode binTreeNode, LinkedQueue queue) {
-        if (binTreeNode != null) {
-            if (binTreeNode.getpLeftChild() != null) {
-                queue.enqueueLQ(binTreeNode.getpLeftChild());
-            }
-            if (binTreeNode.getpRightChild() != null) {
-                queue.enqueueLQ(binTreeNode.getpRightChild());
-            }
-            lOTBTN(binTreeNode.getpLeftChild(), queue);
-            lOTBTN(binTreeNode.getpRightChild(), queue);
-        }
-    }
+//    private void lOTBTN(BinTreeNode binTreeNode, LinkedQueue queue) {
+//        if (binTreeNode != null) {
+//            if (binTreeNode.getpLeftChild() != null) {
+//                queue.enqueueLQ(binTreeNode.getpLeftChild());
+//            }
+//            if (binTreeNode.getpRightChild() != null) {
+//                queue.enqueueLQ(binTreeNode.getpRightChild());
+//            }
+//            lOTBTN(binTreeNode.getpLeftChild(), queue);
+//            lOTBTN(binTreeNode.getpRightChild(), queue);
+//        }
+//    } -> X
 }

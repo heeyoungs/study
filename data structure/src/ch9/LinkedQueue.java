@@ -24,7 +24,7 @@ public class LinkedQueue {
         return 1;
     }
 
-    public LinkedQueueNode dequeueLQ() {
+    public BinTreeNode dequeueLQ() {
         LinkedQueueNode tempNode = null;
         if (isLinkedQueueEmpty() == 1) {
             return null;
@@ -38,7 +38,7 @@ public class LinkedQueue {
             front = front.getLink();
         }
         currentCount--;
-        return tempNode;
+        return tempNode.getData();
     }
 
     public int isLinkedQueueEmpty() {

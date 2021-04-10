@@ -10,6 +10,7 @@ import java.util.stream.Stream;
 
 public class Owner {
     private Scanner scanner = new Scanner(System.in);
+    // 패스 워드 정보
     private int passwordCount = 0;
 
     private final static String password = "9605";
@@ -30,6 +31,7 @@ public class Owner {
         passwordCount++;
     }
 
+    // 주인의 기능
     public void addBook() {
         System.out.println("책을 추가하려고 합니다.");
         System.out.print("책 이름을 입력해주세요 : ");
