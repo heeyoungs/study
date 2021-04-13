@@ -27,4 +27,9 @@ public class Book {
             return false;
         }
     }
+
+    @Override
+    public int hashCode(){
+        return bookName.hashCode() + bookWriter.hashCode();
+    }
 }

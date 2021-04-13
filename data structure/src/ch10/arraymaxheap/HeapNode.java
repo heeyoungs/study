@@ -2,10 +2,12 @@ package ch10.arraymaxheap;
 
 public class HeapNode {
     private Integer data;
-    void setData(Integer data){
+
+    public void setData(Integer data) {
         this.data = data;
     }
-    Integer getData(){
+
+    public Integer getData() {
         return data;
     }
 }

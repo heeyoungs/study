@@ -72,7 +72,6 @@ public class BakJoon2606 {
                     }
                 }
             }
-
         }
 
         int foundAns() {

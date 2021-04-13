@@ -1,31 +1,37 @@
 package bakjoon.bintreealgorithm;
 
-import bakjoon.sortalgorithm.BakJoon10814;
-
-import java.io.*;
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Scanner;
 
 public class BakJoon2078 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n;
-        int[] b = new int[1023];
+        long inputA = sc.nextInt();
+        long inputB = sc.nextInt();
+        ans(inputA, inputB);
+        System.out.print(countL + " " + countR);
 
-        n = sc.nextInt();
-        int num = (1<<n) -1;
-        for(int i=0;i<num;i++){
-            b[i] = sc.nextInt();
+    }
+
+    static long countL = 0;
+    static long countR = 0;
+
+    static void ans(long a, long b) {
+        if (a == 1 && b == 1) { // 종료 조건
+            return;
         }
-        while(true){
-            n--;
-            int cnt = (1<<n+1);
-            for(int i=(cnt-1)/2;i<num;i+=cnt) System.out.print(b[i] + " ");
-            System.out.println();
-            if (n==0){
-                break;
-            }
+        // 트리를 거꾸로 타고 올라간다.
+        if (a == 1) {
+            countR = countR + (b - a);
+            return;
+        } else if (b == 1) {
+            countL = countL + (a - b);
+            return;
+        } else if (a > b) {
+            countL = countL + a / b;
+            ans(a % b, b);
+        } else if (a < b) {
+            countR = countR + b / a;
+            ans(a, b % a);
         }
     }
 }

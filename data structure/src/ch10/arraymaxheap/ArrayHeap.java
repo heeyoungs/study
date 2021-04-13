@@ -4,32 +4,35 @@ public class ArrayHeap {
     private int maxCount;
     private int currentCount;
     private HeapNode[] data;
-    ArrayHeap(int maxCount){
-        if(maxCount < 0){
+
+    public ArrayHeap(int maxCount) {
+        if (maxCount < 0) {
             System.out.println("0보다 작은 인덱스");
             return;
         }
         this.maxCount = maxCount;
         this.currentCount = 0;
-        this.data = new HeapNode[maxCount+1];
+        this.data = new HeapNode[maxCount + 1];
     }
-    int insertMaxHeapAH(int value){
-        if(currentCount == maxCount){
+
+    public int insertMaxHeapAH(int value) {
+        if (currentCount == maxCount) {
             System.out.println("히프가 가득 찼습니다");
             return -1;
         }
         currentCount++;
         int i = currentCount;
         data[currentCount] = new HeapNode();
-        while((i != 1) && (value > data[i/2].getData())){
-            data[i].setData(data[i/2].getData()); // data[i] = data[i/2] 라 하면 객체를 같다 하는거라 29번째 줄에서 둘의 값이 동시에 바뀜
-            i = i/2;
+        while ((i != 1) && (value > data[i / 2].getData())) {
+            data[i].setData(data[i / 2].getData()); // data[i] = data[i/2] 라 하면 객체를 같다 하는거라 29번째 줄에서 둘의 값이 동시에 바뀜
+            i = i / 2;
 
         }
         data[i].setData(value);
         return 1;
     }
-    HeapNode removeMaxHeapAH(){
+
+    public HeapNode removeMaxHeapAH() {
         HeapNode pReturn = null;
         HeapNode pTemp = null;
         int parent = 1, child = 2;
@@ -38,7 +41,7 @@ public class ArrayHeap {
             return null;
         }
         pReturn = new HeapNode();
-        if(pReturn == null){
+        if (pReturn == null) {
             System.out.println("메모리 할당 오류");
             return null;
         }
@@ -48,12 +51,12 @@ public class ArrayHeap {
         data[currentCount] = null;
         currentCount--;
 
-        while(child <= currentCount){
-            if(child < currentCount && data[child].getData() < data[child+1].getData()){
+        while (child <= currentCount) {
+            if (child < currentCount && data[child].getData() < data[child + 1].getData()) {
                 child++;
             }
 
-            if(pTemp.getData() >= data[child].getData()){
+            if (pTemp.getData() >= data[child].getData()) {
                 break;
             }
 
@@ -64,13 +67,15 @@ public class ArrayHeap {
         data[parent] = pTemp;
         return pReturn;
     }
-    void deleteArrayMaxHeap(){
+
+    public void deleteArrayMaxHeap() {
         maxCount = 0;
-        currentCount =0;
+        currentCount = 0;
         data = null;
     }
-    void displayArrayHeap(){
-        for (int i = 1; i<= currentCount; i++){
+
+    public void displayArrayHeap() {
+        for (int i = 1; i <= currentCount; i++) {
             System.out.println(i + "-" + data[i].getData());
         }
     }

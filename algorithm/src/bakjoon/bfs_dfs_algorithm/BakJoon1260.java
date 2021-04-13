@@ -8,6 +8,7 @@ public class BakJoon1260 {
     static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
     public static void main(String[] args) throws IOException {
+
         String[] inputLine = br.readLine().split(" ");
         int nodeCount = Integer.parseInt(inputLine[0]);
         int lineCount = Integer.parseInt(inputLine[1]);

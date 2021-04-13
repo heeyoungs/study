@@ -4,7 +4,7 @@ public class ArrayHeap {
     private int maxCount;
     private int currentCount;
     private HeapNode[] data;
-    ArrayHeap(int maxCount){
+    public ArrayHeap(int maxCount){
         if(maxCount < 0){
             System.out.println("0보다 작은 인덱스");
             return;
@@ -13,7 +13,7 @@ public class ArrayHeap {
         this.currentCount = 0;
         this.data = new HeapNode[maxCount+1];
     }
-    int insertMaxHeapAH(int value){
+    public int insertMaxHeapAH(int value){
         if(currentCount == maxCount){
             System.out.println("히프가 가득 찼습니다");
             return -1;
@@ -29,7 +29,7 @@ public class ArrayHeap {
         data[i].setData(value);
         return 1;
     }
-    HeapNode removeMaxHeapAH(){
+    public HeapNode removeMaxHeapAH(){
         HeapNode pReturn = null;
         HeapNode pTemp = null;
         int parent = 1, child = 2;
@@ -64,7 +64,7 @@ public class ArrayHeap {
         data[parent] = pTemp;
         return pReturn;
     }
-    void deleteArrayMaxHeap(){
+    public void deleteArrayMaxHeap(){
         maxCount = 0;
         currentCount =0;
         data = null;

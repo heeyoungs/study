@@ -2,11 +2,11 @@ package person;
 
 import book.Book;
 import book.Library;
+import exception.InputNotNumberException;
 
 import java.lang.System;
 import java.util.Scanner;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.Set;
 
 public class Owner {
     private Scanner scanner = new Scanner(System.in);
@@ -32,20 +32,33 @@ public class Owner {
     }
 
     // 주인의 기능
-    public void addBook() {
+    public void addBook() throws InputNotNumberException{
         System.out.println("책을 추가하려고 합니다.");
         System.out.print("책 이름을 입력해주세요 : ");
         String bookName = scanner.next();
         System.out.print("책 저자를 입력해주세요 : ");
         String bookWriter = scanner.next();
+        System.out.print("책 년도를 입력해주세요 : ");
+        int bookYear;
+        try {
+            bookYear = scanner.nextInt();
+        }catch (Exception e){
+            throw new InputNotNumberException("잘못된 입력값입니다.");
+        }
 
-        boolean check = Library.bookList.stream()
-                .anyMatch(n -> n.equals(new Book(bookName, bookWriter)));
+        boolean check = Library.bookList.containsKey(new Book(bookName,bookWriter));
 
         if (check) {
-            System.out.println("동일한 책이 있습니다.");
+            System.out.print("동일한 책이 있습니다. 출판년도를 최신화 하려면 비밀번호를 다시 입력해주세요: ");
+            String input = scanner.next();
+            if (input.equals(password)) {
+                System.out.println("출판년도를 최신화 합니다.");
+                Library.bookList.put(new Book(bookName, bookWriter), bookYear);
+            } else {
+                System.out.println("최신화하지 않습니다.");
+            }
         } else {
-            Library.bookList.add(new Book(bookName, bookWriter));
+            Library.bookList.put(new Book(bookName,bookWriter),bookYear);
             System.out.println(bookName + " - " + bookWriter + " 책이 추가되었습니다.");
         }
     } // 직접 추가
@@ -58,17 +71,19 @@ public class Owner {
             return;
         }
 
-        Library.bookPlus.stream()
-                .forEach(n -> System.out.println("책 이름: " + n.getBookName() + " - 저자: " + n.getBookWriter()));
+        Set<Book> bookName = Library.bookPlus.keySet();
+        for (Book key : bookName) {
+            System.out.println("책 이름: " + key.getBookName() + " - 저자: " + key.getBookWriter() + " - 년도: " + Library.bookList.get(key));
+        }
 
         System.out.print("책을 추가하려면 비밀번호를 다시 입력 해주세요: ");
         String inputString = scanner.next();
         if (inputString.equals(password)) {
             System.out.println("요청 받은 책들을 추가합니다.");
-            Library.bookList = Stream.concat(Library.bookList.stream(), Library.bookPlus.stream())
-                    .distinct()
-                    .collect(Collectors.toList());
-
+            bookName = Library.bookPlus.keySet();
+            for (Book key : bookName) {
+                System.out.println("책 이름: " + key.getBookName() + " - 저자: " + key.getBookWriter() + " - 년도: " + Library.bookPlus.get(key));
+            }
             Library.bookPlus.clear();
         } else {
             System.out.println("요청 받은 책들을 추가하지 않습니다.");
@@ -82,12 +97,11 @@ public class Owner {
         System.out.print("책 저자를 입력해주세요 : ");
         String bookWriter = scanner.next();
 
-        boolean check = Library.bookList.stream()
-                .anyMatch(n -> n.equals(new Book(bookName, bookWriter)));
+        boolean check = Library.bookList.containsKey(new Book(bookName,bookWriter));
 
         if (check) {
-            Library.bookList.remove(new Book(bookName, bookWriter));
-            System.out.println(bookName + " - " + bookWriter + " 책이 제거되었습니다.");
+            Library.bookList.remove(new Book(bookName,bookWriter));
+            System.out.println(bookName + " - " + bookWriter + " - "  + Library.bookList.get(new Book(bookName,bookWriter)) + " 책이 제거되었습니다.");
         } else {
             System.out.println("없는 책입니다.");
         }

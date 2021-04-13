@@ -1,27 +1,16 @@
 package book;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.*;
 
 public class Library {
-    public static List<Book> bookList = new LinkedList<>(); // 도서관 책 목록
-    public static List<Book> bookPlus = new LinkedList<>(); // 요청받은 책 목록
+    public static Map<Book,Integer> bookList = new TreeMap<>(new BookSort()); // 도서관 책 목록
+    public static Map<Book,Integer> bookPlus = new TreeMap<>(new BookSort()); // 요청받은 책 목록
 
     public static void checkBook() {
         System.out.println("책 목록을 확인합니다.");
-        bookList.forEach(s -> System.out.println("책 이름: " + s.getBookName() + " - 저자: " + s.getBookWriter()));
+        Set<Book> bookName = bookList.keySet();
+        for (Book key : bookName) {
+            System.out.println("책 이름: " + key.getBookName() + " - 저자: " + key.getBookWriter() + " - 년도: " + bookList.get(key));
+        }
     } // 책 확인하기
-//    public static void writerByBookSort() {
-//        Map<String, List<String>> writer = bookList.stream()
-//                .collect(
-//                        Collectors.groupingBy(
-//                                Book::getBookWriter,
-//                                Collectors.mapping(Book::getBookWriter, Collectors.toList())
-//                        )
-//                );
-//        System.out.print("\n작가: d");
-//        writer.get().stream().forEach(s->System.out.print(s + " "));
-//    }
 }

@@ -48,7 +48,7 @@ public class ArrayGraphExample {
             arrayGraph.addEdgeLG(1, 3);
             System.out.println("깊이우선");
             arrayGraph.displayGraphDLG(arrayGraph);
-            arrayGraph.traversalDFS(0, pVisit);
+            arrayGraph.traversalDFS(0);
             arrayGraph.deleteGraphDLG();
         }
         System.out.println();

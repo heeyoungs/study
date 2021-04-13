@@ -1,7 +1,6 @@
 package bakjoon.bintreealgorithm;
 
 import java.io.*;
-import java.util.Arrays;
 
 public class BakJoon1068_ {
     static int[] d = new int[51];
@@ -19,13 +18,13 @@ public class BakJoon1068_ {
         }
 
         int delete = Integer.parseInt(br.readLine()); // 셋 째 줄 입력
-        if (delete == 0){
+        if (delete == 0) {
             System.out.println(0);
             return;
         } // 루트 노드를 제거할 때
 
         int[][] childToParent = new int[nodeCount][2];
-        for(int i = 0;i<nodeCount;i++){ // 0 -> index번호, 1 -> 부모노드
+        for (int i = 0; i < nodeCount; i++) { // 0 -> index 번호, 1 -> 부모노드
             childToParent[i][0] = i;
             childToParent[i][1] = array[i];
         }
@@ -33,12 +32,12 @@ public class BakJoon1068_ {
         // 지워야되는 노드들 지우기
         int index = 0;
         d[index] = delete;
-        for(int i=0;i<nodeCount;i++){
-            for(int j=0;j<=index;j++){
-                if (childToParent[i][0] == d[j]){
+        for (int i = 0; i < nodeCount; i++) {
+            for (int j = 0; j <= index; j++) {
+                if (childToParent[i][0] == d[j]) {
                     childToParent[i][0] = -1; // 초기화
                     childToParent[i][1] = -1;
-                } else if (childToParent[i][1] == d[j]){
+                } else if (childToParent[i][1] == d[j]) {
                     index++;
                     d[index] = childToParent[i][0];
                     childToParent[i][0] = -1; // 초기화
@@ -47,15 +46,15 @@ public class BakJoon1068_ {
             }
         }
 
-        for(int i=0;i<nodeCount;i++){
+        for (int i = 0; i < nodeCount; i++) {
             System.out.println(childToParent[i][0] + " " + childToParent[i][1]);
         }
 
         //리프 노드 찾기
         int count = nodeCount;
-        for(int i=0;i<nodeCount;i++){
-            for(int j=0;j<nodeCount;j++){
-                if(childToParent[i][0] == childToParent[j][1]){
+        for (int i = 0; i < nodeCount; i++) {
+            for (int j = 0; j < nodeCount; j++) {
+                if (childToParent[i][0] == childToParent[j][1]) {
                     count--;
                     break;
                 }
