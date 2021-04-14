@@ -59,7 +59,7 @@ public class Owner {
             }
         } else {
             Library.bookList.put(new Book(bookName,bookWriter),bookYear);
-            System.out.println(bookName + " - " + bookWriter + " 책이 추가되었습니다.");
+            System.out.println(bookName + " - " + bookWriter + " - " + Library.bookList.get(new Book(bookName,bookWriter)) + " 책이 추가되었습니다.");
         }
     } // 직접 추가
 
@@ -73,7 +73,7 @@ public class Owner {
 
         Set<Book> bookName = Library.bookPlus.keySet();
         for (Book key : bookName) {
-            System.out.println("책 이름: " + key.getBookName() + " - 저자: " + key.getBookWriter() + " - 년도: " + Library.bookList.get(key));
+            System.out.println("책 이름: " + key.getBookName() + " - 저자: " + key.getBookWriter() + " - 년도: " + Library.bookPlus.get(key));
         }
 
         System.out.print("책을 추가하려면 비밀번호를 다시 입력 해주세요: ");
@@ -82,7 +82,7 @@ public class Owner {
             System.out.println("요청 받은 책들을 추가합니다.");
             bookName = Library.bookPlus.keySet();
             for (Book key : bookName) {
-                System.out.println("책 이름: " + key.getBookName() + " - 저자: " + key.getBookWriter() + " - 년도: " + Library.bookPlus.get(key));
+                Library.bookList.put(key,Library.bookPlus.get(key));
             }
             Library.bookPlus.clear();
         } else {

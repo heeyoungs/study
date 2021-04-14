@@ -41,10 +41,11 @@ password : lim9605!
 - 인증키 생성방법
 
 ```bash
-ssh -ed25519 -C "comment"
+ssh-keygen
 ```
 
-- -C 는 코멘트를 남기는 플래그
+- 저장경로 및 패스워드를 설정할지에 대한 여부를 물어본다
+- github사이트에 ssh키를 등록해주면 된다.
 
 ---
 
