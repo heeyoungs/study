@@ -1,6 +1,5 @@
 package bakjoon.backtrackingalgorithm;
 
-import java.awt.*;
 import java.io.*;
 
 public class BakJoon15649 {
@@ -12,11 +11,19 @@ public class BakJoon15649 {
         int inputN = Integer.parseInt(input[0]);
         int inputM = Integer.parseInt(input[1]);
 
-        int[] array = new int[inputN];
-        for (int i = 0; i < inputN; i++) {
-            array[i] = i + 1;
-        } // 1부터 N 까지의 배열
+        hi(inputN,inputM);
+        bw.flush();
+        bw.close();
+        br.close();
+    }
+    static void hi(int n, int m){
+        if (m == 0) return;
+
+        for(int k =0;k<m;k++){
+            hi(n,m-1);
+        }
 
 
     }
+
 }
