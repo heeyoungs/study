@@ -2,7 +2,7 @@ package bakjoon.priorityqueuealgorithm;
 
 import java.util.Scanner;
 
-public class BakJoon11279 {
+public class BakJoon1927 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         StringBuilder sb = new StringBuilder();

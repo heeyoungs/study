@@ -1,4 +1,4 @@
-package bakjoon.dynamicprogrmmingalgorithm;
+package bakjoon.backtrackingalgorithm;
 
 import java.util.Scanner;
 
