@@ -2,7 +2,7 @@ package bakjoon.binarysearchalgorithm;
 
 import java.io.*;
 import java.util.Arrays;
-
+// 수 찾기
 public class BakJoon1920 {
     public static void main(String[] args) throws IOException {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));

@@ -2,8 +2,8 @@ package bakjoon.binarysearchalgorithm;
 
 import java.io.*;
 import java.util.Arrays;
-
-public class BakJoon2805 { // 나무 자르기 - 이분 탐색
+// 나무 자르기 - 이분 탐색
+public class BakJoon2805 {
     public static void main(String[] args) throws IOException {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

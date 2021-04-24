@@ -1,7 +1,7 @@
 package bakjoon.numberpheoryalgorithm;
 
 import java.util.Scanner;
-
+// 최소 공배수
 public class BakJoon1934 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

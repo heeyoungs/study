@@ -3,7 +3,7 @@ package bakjoon.stackalgorithm;
 import java.io.*;
 import java.util.Scanner;
 import java.util.Stack;
-
+// 오큰수
 public class BakJoon17298 { // 내림차순으로 쑤셔박기!
     public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);

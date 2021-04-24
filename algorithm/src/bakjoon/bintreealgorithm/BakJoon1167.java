@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
-
+// 트리의 지름
 public class BakJoon1167 {
     static ArrayList<Point>[] list;
     static boolean[] visit;

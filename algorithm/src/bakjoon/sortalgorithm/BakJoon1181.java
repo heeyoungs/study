@@ -3,7 +3,7 @@ package bakjoon.sortalgorithm;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Scanner;
-
+// 단어 정렬
 public class BakJoon1181 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

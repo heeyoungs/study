@@ -2,7 +2,7 @@ package bakjoon.stackalgorithm;
 
 import java.io.*;
 import java.util.Stack;
-
+// 에디터
 public class BakJoon1406 {
     public static void main(String[] args) throws IOException {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));

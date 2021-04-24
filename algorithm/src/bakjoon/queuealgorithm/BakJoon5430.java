@@ -3,7 +3,7 @@ package bakjoon.queuealgorithm;
 import java.io.*;
 import java.util.Deque;
 import java.util.LinkedList;
-
+// AC
 public class BakJoon5430 {
     public static void main(String[] args) throws IOException {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));

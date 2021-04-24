@@ -1,7 +1,7 @@
 package bakjoon.greedyalgorithm;
 
 import java.io.*;
-
+// 잃어버린 괄호
 public class BakJoon1541 {
     public static void main(String[] args) throws IOException { // -를 만나면 다시 -를 만날때까지 다 더하자
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

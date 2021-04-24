@@ -1,7 +1,7 @@
 package bakjoon.numberpheoryalgorithm;
 
 import java.util.Scanner;
-
+// 이항 계수 1
 public class BakJoon11050 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

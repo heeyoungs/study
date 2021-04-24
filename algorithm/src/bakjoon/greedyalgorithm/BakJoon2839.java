@@ -1,7 +1,7 @@
 package bakjoon.greedyalgorithm;
 
 import java.io.*;
-
+// 설탕 배달
 public class BakJoon2839 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

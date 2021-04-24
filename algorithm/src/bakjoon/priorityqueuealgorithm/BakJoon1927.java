@@ -1,7 +1,7 @@
 package bakjoon.priorityqueuealgorithm;
 
 import java.util.Scanner;
-
+// 최소 힙
 public class BakJoon1927 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

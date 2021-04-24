@@ -1,7 +1,7 @@
 package bakjoon.numberpheoryalgorithm;
 
 import java.io.*;
-
+// 팩토리얼 0의 개수
 public class BakJoon1676 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
-
+// 미확인 도착지
 public class BakJoon9370 {
     static class Point implements Comparable<Point> {
         int point;

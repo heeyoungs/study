@@ -4,7 +4,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.Scanner;
-
+// 수 정렬하기 2
 public class BakJoon2751 {
     static int[] copyArray = new int[1000000];
 

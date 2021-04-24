@@ -1,7 +1,7 @@
 package bakjoon.backtrackingalgorithm;
 
 import java.io.*;
-
+// N과 M(1)
 public class BakJoon15649 {
     public static void main(String[] args) throws IOException {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));

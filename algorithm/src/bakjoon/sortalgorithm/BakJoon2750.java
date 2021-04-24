@@ -1,7 +1,7 @@
 package bakjoon.sortalgorithm;
 
 import java.util.Scanner;
-
+// 수 정렬하기
 public class BakJoon2750 {
     public static void main(String[] args) {
         int[] array = new int[1000];

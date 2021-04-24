@@ -2,7 +2,7 @@ package bakjoon.stackalgorithm;
 
 import java.io.*;
 import java.util.Stack;
-
+// 쇠막대기
 public class BakJoon10799 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

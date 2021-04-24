@@ -3,7 +3,7 @@ package bakjoon.bfs_dfs_algorithm;
 import java.io.*;
 import java.util.Stack;
 import java.util.StringTokenizer;
-
+// 영역 구하기
 public class BakJoon2583 {
     static int width;
     static int height;

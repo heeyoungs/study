@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
-
+// 최소비용 구하기
 public class BakJoon1916 {
     public static void main(String[] args) throws IOException {
         class Point implements Comparable<Point> {

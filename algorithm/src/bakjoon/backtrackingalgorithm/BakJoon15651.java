@@ -1,7 +1,7 @@
 package bakjoon.backtrackingalgorithm;
 
 import java.util.Scanner;
-
+// N과 M(3)
 public class BakJoon15651 {
     static int[] arr;
     static int N, M;

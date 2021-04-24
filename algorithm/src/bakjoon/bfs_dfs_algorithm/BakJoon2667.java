@@ -3,7 +3,7 @@ package bakjoon.bfs_dfs_algorithm;
 import java.io.*;
 import java.util.Arrays;
 import java.util.Stack;
-
+// 단지 번호 붙이기
 public class BakJoon2667 {
     static int[][] arr;
     static int[] dx = {0, 1, 0, -1};

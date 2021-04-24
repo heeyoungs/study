@@ -2,7 +2,7 @@ package bakjoon.bruteforcealgorithm;
 
 import java.io.*;
 import java.util.StringTokenizer;
-
+// 블랙잭
 public class BakJoon2798 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

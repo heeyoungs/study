@@ -2,7 +2,7 @@ package bakjoon.sortalgorithm;
 
 import java.util.Arrays;
 import java.util.Scanner;
-
+// 소트인사이드
 public class BakJoon1427 {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);

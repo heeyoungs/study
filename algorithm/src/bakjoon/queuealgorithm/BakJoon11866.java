@@ -3,7 +3,7 @@ package bakjoon.queuealgorithm;
 import java.io.*;
 import java.util.LinkedList;
 import java.util.Queue;
-
+// 요시푸스 문제 0
 public class BakJoon11866 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

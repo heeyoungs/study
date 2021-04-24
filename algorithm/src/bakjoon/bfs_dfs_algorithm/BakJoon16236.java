@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
-
+// 아기 상어
 public class BakJoon16236 {
     static int N;
     static int[] dx = {0, -1, 1, 0};

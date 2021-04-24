@@ -2,7 +2,7 @@ package bakjoon.dynamicprogrmmingalgorithm;
 
 import java.io.*;
 import java.util.StringTokenizer;
-
+// 신나는 함수 실행
 public class BakJoon9184 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

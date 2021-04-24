@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
-
+// 해킹
 public class BakJoon10282 {
     static class Point implements Comparable<Point> {
         int point;

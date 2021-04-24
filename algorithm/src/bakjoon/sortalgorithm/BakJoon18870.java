@@ -3,7 +3,7 @@ package bakjoon.sortalgorithm;
 import java.io.*;
 import java.util.Arrays;
 import java.util.Comparator;
-
+// 좌표압축
 public class BakJoon18870 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

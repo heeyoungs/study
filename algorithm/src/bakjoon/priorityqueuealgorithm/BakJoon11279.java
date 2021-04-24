@@ -1,7 +1,7 @@
 package bakjoon.priorityqueuealgorithm;
 
 import java.util.Scanner;
-
+// 최대 힙
 public class BakJoon11279 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

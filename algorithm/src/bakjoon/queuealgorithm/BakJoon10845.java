@@ -1,7 +1,7 @@
 package bakjoon.queuealgorithm;
 
 import java.io.*;
-
+// 큐
 public class BakJoon10845 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

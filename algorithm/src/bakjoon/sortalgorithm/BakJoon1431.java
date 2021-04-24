@@ -3,6 +3,7 @@ package bakjoon.sortalgorithm;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Scanner;
+// 시리얼 번호
 
 public class BakJoon1431 {
     public static void main(String[] args) {

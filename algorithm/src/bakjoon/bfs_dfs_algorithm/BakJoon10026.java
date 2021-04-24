@@ -3,7 +3,7 @@ package bakjoon.bfs_dfs_algorithm;
 import java.io.*;
 import java.util.LinkedList;
 import java.util.Queue;
-
+// 적록 색약
 public class BakJoon10026 {
     static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
     static int lineCount;

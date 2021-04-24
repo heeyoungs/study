@@ -1,7 +1,7 @@
 package bakjoon.greedyalgorithm;
 
 import java.io.*;
-
+// 캠핑
 public class BakJoon4796 {
     public static void main(String[] args) throws IOException {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));

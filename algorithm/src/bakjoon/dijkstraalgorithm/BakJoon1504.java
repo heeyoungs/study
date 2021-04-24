@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
-
+// 특정한 최단 경로
 public class BakJoon1504 {
 
     static boolean[] visit;

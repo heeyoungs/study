@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.StringTokenizer;
-
+// 트리의 지름
 public class BakJoon1967 {
     static int nodeCount;
     static ArrayList<PointWithWeight>[] list;

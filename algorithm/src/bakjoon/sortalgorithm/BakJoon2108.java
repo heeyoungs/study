@@ -1,7 +1,7 @@
 package bakjoon.sortalgorithm;
 
 import java.util.Scanner;
-
+// 통계학
 public class BakJoon2108 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

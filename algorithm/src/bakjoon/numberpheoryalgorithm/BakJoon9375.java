@@ -2,7 +2,7 @@ package bakjoon.numberpheoryalgorithm;
 
 import java.io.*;
 import java.util.*;
-
+// 패션왕 신혜빈
 public class BakJoon9375 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

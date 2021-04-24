@@ -1,7 +1,7 @@
 package bakjoon.dynamicprogrmmingalgorithm;
 
 import java.io.*;
-
+// 피보나치 함수
 public class BakJoon1003 {
     static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

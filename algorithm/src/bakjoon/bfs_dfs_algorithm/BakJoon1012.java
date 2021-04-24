@@ -1,7 +1,7 @@
 package bakjoon.bfs_dfs_algorithm;
 
 import java.io.*;
-
+// 유기농 배추
 public class BakJoon1012 {
     static int[][] arr;
     static int[] dx = {0, 1, 0, -1}; // x좌표

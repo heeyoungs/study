@@ -1,7 +1,7 @@
 package bakjoon.numberpheoryalgorithm;
 
 import java.io.*;
-
+// 링
 public class BakJoon3036 {
     public static void main(String[] args) throws IOException {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));

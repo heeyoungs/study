@@ -1,7 +1,7 @@
 package bakjoon.bintreealgorithm;
 
 import java.util.Scanner;
-
+// 무한 이진 트리
 public class BakJoon2078 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

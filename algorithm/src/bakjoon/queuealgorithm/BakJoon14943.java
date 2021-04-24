@@ -22,7 +22,7 @@ public class BakJoon14943 {
             } else if (queue.peek().Burook < 0 && inputBurook < 0) {
                 queue.add(new Burook(inputBurook, i)); // 큐가 음수, 인풋이 음수 -> 그냥 넣어
                 continue;
-            } else if (queue.peek().Burook > 0 && inputBurook < 0) { // 큐는 양수 큐, 인풋이 음수 -> 꺼내서 비교하고 ans에 추가
+            } else if (queue.peek().Burook > 0 && inputBurook < 0) { // 큐는 양수 큐, 인풋이 음수 -> 꺼내서 비교하고 ans 에 추가
                 while (!queue.isEmpty() && inputBurook != 0) {
                     Burook check = queue.poll();
                     int checkBurook = check.Burook;

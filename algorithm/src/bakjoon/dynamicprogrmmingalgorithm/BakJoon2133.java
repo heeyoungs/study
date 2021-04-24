@@ -1,7 +1,7 @@
 package bakjoon.dynamicprogrmmingalgorithm;
 
 import java.util.Scanner;
-
+// 타일 채우기
 public class BakJoon2133 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

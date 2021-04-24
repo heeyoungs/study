@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.Scanner;
 import java.util.Stack;
-
+// 균형잡힌 세상
 public class BakJoon4949 {
     public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);

@@ -1,7 +1,7 @@
 package bakjoon.sortalgorithm;
 
 import java.util.*;
-
+// 나이순 정렬
 public class BakJoon10814 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

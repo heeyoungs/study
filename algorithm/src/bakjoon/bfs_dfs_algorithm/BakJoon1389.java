@@ -2,7 +2,7 @@ package bakjoon.bfs_dfs_algorithm;
 
 import java.io.*;
 import java.util.*;
-
+// 케빈 베이컨의 6단계 법칙
 public class BakJoon1389 {
     static ArrayList<Integer>[] list;
     static boolean[] visit;

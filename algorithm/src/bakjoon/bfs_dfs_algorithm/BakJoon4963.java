@@ -1,7 +1,7 @@
 package bakjoon.bfs_dfs_algorithm;
 
 import java.io.*;
-
+// 섬의 개수
 public class BakJoon4963 {
     static int[][] arr;
     static int width;

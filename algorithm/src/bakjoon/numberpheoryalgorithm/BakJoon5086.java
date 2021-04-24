@@ -1,7 +1,7 @@
 package bakjoon.numberpheoryalgorithm;
 
 import java.util.Scanner;
-
+// 배수와 약수
 public class BakJoon5086 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

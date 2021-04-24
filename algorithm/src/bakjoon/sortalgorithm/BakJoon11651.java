@@ -3,7 +3,7 @@ package bakjoon.sortalgorithm;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Scanner;
-
+// 좌표 정렬하기 2
 public class BakJoon11651 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

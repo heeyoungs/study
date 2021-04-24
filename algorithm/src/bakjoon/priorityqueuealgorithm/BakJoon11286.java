@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Comparator;
 import java.util.PriorityQueue;
-
+// 절대값 힙
 public class BakJoon11286 {
     public static void main(String[] args) throws IOException {
         PriorityQueue<Integer> heap = new PriorityQueue<>(new Comparator<Integer>() { // 새로운 정렬 기준 만들기

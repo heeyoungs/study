@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
-
+// 요시푸스 문제
 public class BakJoon1158 {
     public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);

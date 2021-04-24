@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
-
+// 벽 부수고 이동하기
 public class BakJoon2206 {
     public static void main(String[] args) throws IOException {
         class PointXY {

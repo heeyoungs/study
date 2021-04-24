@@ -1,7 +1,7 @@
 package bakjoon.recursivealgorithm;
 
 import java.util.Scanner;
-
+// 팩토리얼
 public class BakJoon10872 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

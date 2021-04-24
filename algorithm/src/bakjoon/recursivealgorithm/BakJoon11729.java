@@ -1,7 +1,7 @@
 package bakjoon.recursivealgorithm;
 
 import java.io.*;
-
+// 하노이 탑 이동 순서
 public class BakJoon11729 {
     static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

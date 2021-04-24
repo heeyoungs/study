@@ -1,7 +1,7 @@
 package bakjoon.numberpheoryalgorithm;
 
 import java.io.*;
-
+// 조합 0의 개수
 public class BakJoon2004 {
     public static void main(String[] args) throws IOException {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));

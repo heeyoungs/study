@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
-
+// 효율적인 해킹
 public class BakJoon1325 {
     static ArrayList<Integer>[] list;
     static boolean[] visit;

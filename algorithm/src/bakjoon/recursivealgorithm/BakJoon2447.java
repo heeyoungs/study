@@ -1,7 +1,7 @@
 package bakjoon.recursivealgorithm;
 
 import java.io.*;
-
+// 별 찍기 10
 public class BakJoon2447 {
     static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

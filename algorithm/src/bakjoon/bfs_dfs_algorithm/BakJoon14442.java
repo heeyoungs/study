@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
-
+// 벽 부수고 이동하기 2
 public class BakJoon14442 { // 방문 여부 및 부순 벽의 개수를 가진 3차원배열을 사용해서 벽을 0,1,2,3개 부쉈을때의 평행세계를 만듬
     static int[][] ground;
     static int[][][] visit;

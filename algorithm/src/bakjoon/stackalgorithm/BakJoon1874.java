@@ -2,7 +2,7 @@ package bakjoon.stackalgorithm;
 
 import java.io.*;
 import java.util.Stack;
-
+// 스택 수열
 public class BakJoon1874 { // BufferedWriter을 쓸 경우 버퍼에 일정이상 채워지면 비정기적으로 flush -> 오류
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

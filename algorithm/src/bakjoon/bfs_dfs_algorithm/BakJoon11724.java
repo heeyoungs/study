@@ -2,7 +2,7 @@ package bakjoon.bfs_dfs_algorithm;
 
 import java.io.*;
 import java.util.LinkedList;
-
+// 연결 요소의 개수
 public class BakJoon11724 {
     static LinkedList<Integer>[] list;
     static boolean visit[];

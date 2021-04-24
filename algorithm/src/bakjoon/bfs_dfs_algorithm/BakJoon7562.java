@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
-
+// 나이트의 이동
 public class BakJoon7562 {
     static int[][] chess;
     static int length;

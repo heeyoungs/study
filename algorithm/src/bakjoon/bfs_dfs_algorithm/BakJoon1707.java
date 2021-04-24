@@ -4,7 +4,7 @@ package bakjoon.bfs_dfs_algorithm;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
-
+// 이분 그래프
 public class BakJoon1707 { // 그래프를 방문할때마다 다른 값으로 초기화해주는 문제
     static int[] visit;
     static ArrayList<Integer>[] list;

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
-
+// 특정 거리의 도시 찾기
 public class BakJoon18352 {
     static int nodeCount;
     static boolean[] visit;

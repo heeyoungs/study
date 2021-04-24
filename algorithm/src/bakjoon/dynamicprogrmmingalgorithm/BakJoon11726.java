@@ -1,7 +1,7 @@
 package bakjoon.dynamicprogrmmingalgorithm;
 
 import java.util.Scanner;
-
+// 2xN 타일링
 public class BakJoon11726 {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);

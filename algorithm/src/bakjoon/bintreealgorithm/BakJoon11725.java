@@ -2,7 +2,7 @@ package bakjoon.bintreealgorithm;
 
 import java.io.*;
 import java.util.LinkedList;
-
+// 트리의 부모 찾기
 public class BakJoon11725 {
     static int[] arr;
     static boolean[] visit;

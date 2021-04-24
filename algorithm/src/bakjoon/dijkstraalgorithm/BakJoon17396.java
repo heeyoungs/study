@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
-
+// 백도어
 public class BakJoon17396 {
     static boolean[] visit;
     static long[] distance;

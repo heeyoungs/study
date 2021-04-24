@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Stack;
 import java.util.StringTokenizer;
-
+// 트리
 public class BakJoon4803 {
     static int treeCount;
     static int[] visit;

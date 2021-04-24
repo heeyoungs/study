@@ -2,8 +2,7 @@ package bakjoon.dijkstraalgorithm;
 
 import java.io.*;
 import java.util.*;
-
-// DijkstraAlgorithm -> 최단 거리를 계속해서 갱신해 나가는 문제
+// 최단 경로
 public class BakJoon1753 {
     static int pointCount;
     static int lineCount;

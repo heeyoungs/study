@@ -1,7 +1,7 @@
 package bakjoon.numberpheoryalgorithm;
 
 import java.util.Scanner;
-
+// 다리 놓기
 public class BakJoon1010 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

@@ -3,7 +3,7 @@ package bakjoon.bfs_dfs_algorithm;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
-
+// 숨바꼭질
 public class BakJoon1697 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

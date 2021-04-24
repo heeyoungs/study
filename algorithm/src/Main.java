@@ -1,51 +1,29 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String studentName;
-        int studentNumber;
-        int count = 0;
-        Student[] students = new Student[1000];
-        while(true){
-            System.out.print("이름 입력 : ");
-            studentName = sc.next();
-            System.out.print("학번 입력 (종료시 0) :");
-            studentNumber = sc.nextInt();
-            if(studentNumber == 0){
-                break;
-            } // 종료 조건
-            students[count] = new Student();
-            students[count].setStudentName(studentName); // 세터 사용
-            students[count].setStudentNumber(studentNumber);
-            count++;
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+        int testCase = Integer.parseInt(br.readLine());
+        for (int test = 0; test < testCase; test++) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
+            int ans = a;
+            ans = ans % 10;
+            for (int i = 1; i < b; i++) {
+                ans = ans * a;
+                ans = ans%10;
+            }
+            if (ans == 0){
+                sb.append(10 + "\n");
+            }else {
+                sb.append(ans + "\n");
+            }
         }
-        for(int i=0;i<count;i++){
-            // 게터 사용
-            System.out.println(students[i].getStudentName() + " - " + students[i].getStudentNumber());
-        }
-    }
-
-    static class Student {
-        private String studentName;
-        private int studentNumber;
-
-        Student() {}
-
-        void setStudentName(String studentName) {
-            this.studentName = studentName;
-        }
-
-        void setStudentNumber(int studentNumber) {
-            this.studentNumber = studentNumber;
-        }
-
-        String getStudentName() {
-            return studentName;
-        }
-
-        int getStudentNumber() {
-            return studentNumber;
-        }
+        System.out.print(sb);
     }
 }

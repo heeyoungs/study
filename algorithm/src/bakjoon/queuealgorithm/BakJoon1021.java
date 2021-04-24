@@ -3,7 +3,7 @@ package bakjoon.queuealgorithm;
 import java.io.*;
 import java.util.Deque;
 import java.util.LinkedList;
-
+// 회전하는 큐
 public class BakJoon1021 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

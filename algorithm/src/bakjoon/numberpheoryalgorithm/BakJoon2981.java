@@ -14,7 +14,7 @@ a = bq + r 에서 r = a - bq 이므로 G(a, b) = G(a, a - bq)이다. 이제 직�
 
 import java.io.*;
 import java.util.Arrays;
-
+// 검문
 public class BakJoon2981 {
     public static void main(String[] args) throws IOException {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));

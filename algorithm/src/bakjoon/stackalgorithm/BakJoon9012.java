@@ -2,7 +2,7 @@ package bakjoon.stackalgorithm;
 
 import java.io.*;
 import java.util.Stack;
-
+// 괄호
 public class BakJoon9012 {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));

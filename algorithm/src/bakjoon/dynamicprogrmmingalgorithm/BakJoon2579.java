@@ -1,7 +1,7 @@
 package bakjoon.dynamicprogrmmingalgorithm;
 
 import java.io.*;
-
+// 계단 오르기
 public class BakJoon2579 {
     static int[][] d = new int[301][3];
     public static void main(String[] args) throws IOException {

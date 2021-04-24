@@ -3,7 +3,7 @@ package bakjoon.bfs_dfs_algorithm;
 import java.io.*;
 import java.util.LinkedList;
 import java.util.Queue;
-
+// 미로 탐색
 public class BakJoon2178 {
     static int[][] arr;
     static int[] dx = {-1, 0, 0, 1};

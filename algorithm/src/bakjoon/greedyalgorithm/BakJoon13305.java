@@ -1,7 +1,7 @@
 package bakjoon.greedyalgorithm;
 
 import java.util.Scanner;
-
+// 주유소
 public class BakJoon13305 { // 입력값의 범위를 잘 확인하자!!
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

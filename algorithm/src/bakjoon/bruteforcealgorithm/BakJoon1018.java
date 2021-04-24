@@ -1,7 +1,7 @@
 package bakjoon.bruteforcealgorithm;
 
 import java.io.*;
-
+// 체스판 다시 칠하기
 public class BakJoon1018 {
     public static void main(String[] args) throws IOException {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));

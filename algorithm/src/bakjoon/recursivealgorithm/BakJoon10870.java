@@ -1,7 +1,7 @@
 package bakjoon.recursivealgorithm;
 
 import java.util.Scanner;
-
+// 피보나치 수 5
 public class BakJoon10870 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

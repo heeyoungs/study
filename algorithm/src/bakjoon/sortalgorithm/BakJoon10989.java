@@ -1,7 +1,7 @@
 package bakjoon.sortalgorithm;
 
 import java.io.*;
-
+// 수 정렬하기 3
 public class BakJoon10989 { // 버퍼 reader 와 버퍼 write 둘다 써야 시간 초과가 안뜬다.
     public static void main(String[] args) throws IOException {
         int[] arraySum = new int[10001];

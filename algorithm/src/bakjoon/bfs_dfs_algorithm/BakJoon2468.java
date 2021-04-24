@@ -2,7 +2,7 @@ package bakjoon.bfs_dfs_algorithm;
 
 import java.io.*;
 import java.util.StringTokenizer;
-
+// 안전 영역
 public class BakJoon2468 {
     static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

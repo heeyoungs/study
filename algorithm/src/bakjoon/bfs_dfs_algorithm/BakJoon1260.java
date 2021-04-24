@@ -2,7 +2,7 @@ package bakjoon.bfs_dfs_algorithm;
 
 import java.io.*;
 import java.util.*;
-
+// DFS와 BFS
 public class BakJoon1260 {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));

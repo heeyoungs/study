@@ -2,7 +2,7 @@ package bakjoon.greedyalgorithm;
 
 import java.util.Scanner;
 import java.util.Stack;
-
+// 동전 0
 public class BakJoon11047 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

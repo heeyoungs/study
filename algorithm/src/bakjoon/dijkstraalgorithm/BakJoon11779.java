@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
-
+// 최소 비용 구하기2
 public class BakJoon11779 {
     static int nodeCount;
     static boolean[] visit;

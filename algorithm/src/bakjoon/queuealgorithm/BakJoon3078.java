@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
-
+// 좋은 친구
 public class BakJoon3078 {
     public static void main(String[] args) throws IOException {
         Scanner sc =new Scanner(System.in);

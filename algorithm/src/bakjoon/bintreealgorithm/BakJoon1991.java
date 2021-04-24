@@ -1,7 +1,7 @@
 package bakjoon.bintreealgorithm;
 
 import java.io.*;
-
+// 트리 순회
 public class BakJoon1991 {
     static Integer[][] alphaWithChild;
     static int nodeCount;

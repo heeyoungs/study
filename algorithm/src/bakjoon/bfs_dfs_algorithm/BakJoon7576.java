@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
-
+// 토마토
 public class BakJoon7576 {
     static int[][] ground;
     static int width;

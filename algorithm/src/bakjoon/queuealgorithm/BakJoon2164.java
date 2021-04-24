@@ -3,7 +3,7 @@ package bakjoon.queuealgorithm;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
-
+// 카드 2
 public class BakJoon2164 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

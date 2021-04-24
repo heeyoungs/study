@@ -3,7 +3,7 @@ package bakjoon.greedyalgorithm;
 import java.io.*;
 import java.util.Arrays;
 import java.util.Comparator;
-
+// 회의실 배정
 public class BakJoon1931 {
     public static void main(String[] args) throws IOException { // 거꾸로 생각하는 습관을 길러보자
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.StringTokenizer;
-
+// 웜홀
 public class BakJoon1865 {
     static class Point {
         int point;
