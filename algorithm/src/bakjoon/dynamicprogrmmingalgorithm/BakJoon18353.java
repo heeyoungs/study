@@ -1,4 +1,4 @@
-package sourcecode.dynamicprogramming;
+package bakjoon.dynamicprogrmmingalgorithm;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,7 +8,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.StringTokenizer;
 
-public class SoldierOut { // LIS 를 뒤집은 문제 (가장 긴 부분 수열)
+// 병사 배치하기
+public class BakJoon18353 { // LIS 를 뒤집은 문제 (가장 긴 부분 수열)
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
