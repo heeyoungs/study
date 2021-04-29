@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 // 감시
-public class BakJoon15683_x {
+public class BakJoon15683 {
     static int[][] area;
     static int[] dx = {1, 0, -1, 0};
     static int[] dy = {0, 1, 0, -1};
