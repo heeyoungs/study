@@ -16,6 +16,7 @@ public class BakJoon14003 {
         int[] array = new int[1000002];
         int[] save = new int[1000002];
         int[] mem = new int[1000002];
+
         for (int i = 1; i <= N; i++) {
             array[i] = Integer.parseInt(st.nextToken());
         }
@@ -26,9 +27,7 @@ public class BakJoon14003 {
             if (array[i] > save[savePoint]) {
                 savePoint++;
                 save[savePoint] = array[i];
-
-                mem[i] = savePoint - 1;
-                maxIndex = i;
+                mem[savePoint] = array[i];
             } else {
                 int low = 1;
                 int high = savePoint;
@@ -42,22 +41,21 @@ public class BakJoon14003 {
                     }
                 }
                 save[low] = array[i];
-                mem[i] = low;
             }
         }
-        for(int i=1;i<=N;i++){
-            System.out.print(mem[i] + " ");
+        for (int i=1;i<5;i++){
+            System.out.println(mem[i]);
         }
-
-        sb.append(savePoint).append("\n");
-        Stack<Integer> stack = new Stack<>();
-        while (maxIndex != 0) {
-            stack.push(array[maxIndex]);
-            maxIndex = mem[maxIndex];
-        }
-        while (!stack.isEmpty()) {
-            sb.append(stack.pop()).append(" ");
-        }
-        System.out.println(sb);
+//
+//        sb.append(savePoint).append("\n");
+//        Stack<Integer> stack = new Stack<>();
+//        while (maxIndex != 0) {
+//            stack.push(array[maxIndex]);
+//            maxIndex = mem[maxIndex];
+//        }
+//        while (!stack.isEmpty()) {
+//            sb.append(stack.pop()).append(" ");
+//        }
+//        System.out.println(sb);
     }
 }
