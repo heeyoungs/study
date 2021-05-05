@@ -5,7 +5,7 @@ import ch3.singlelinkedlist.PositionException;
 public class DirectLinkedGraph {
     private int nodeCount;
     private LinkedList[] ppAdjEdge;
-    DirectLinkedGraph(int nodeCount){
+    public DirectLinkedGraph(int nodeCount){
         if (nodeCount<0) {
             System.out.println("0보다 작은 인덱스");
             return;
@@ -20,7 +20,7 @@ public class DirectLinkedGraph {
             return;
         }
     }
-    int addEdgeDLG(int fromNode, int toNode){
+    public int addEdgeDLG(int fromNode, int toNode){
         if(checkVertexValid(fromNode) && checkVertexValid(toNode)){
             try {
                 ppAdjEdge[fromNode].addNode(0, toNode);
@@ -32,7 +32,7 @@ public class DirectLinkedGraph {
         }
         return -1;
     }
-    int removeEdgeDLG(int fromNode, int toNode){
+    public int removeEdgeDLG(int fromNode, int toNode){
         if (checkVertexValid(fromNode)&&checkVertexValid(toNode)){
             LinkedList list = ppAdjEdge[fromNode];
             int count = list.getLinkedListLength();
@@ -50,7 +50,7 @@ public class DirectLinkedGraph {
         }
         return -1;
     }
-    int getEdgeDLG(int fromNode, int toNode){ // 이부분 수정
+    public int getEdgeDLG(int fromNode, int toNode){ // 이부분 수정
         if(checkVertexValid(fromNode)&&checkVertexValid(toNode)){
             LinkedList list = ppAdjEdge[fromNode];
             int count = list.getLinkedListLength();
@@ -62,13 +62,13 @@ public class DirectLinkedGraph {
         }
         return -1;
     }
-    boolean checkVertexValid(int node){
+    private boolean checkVertexValid(int node){
         if (node >= 0 && node < nodeCount){
             return true;
         }
         return false;
     }
-    void displayGraphDLG(DirectLinkedGraph graph){
+    public void displayGraphDLG(DirectLinkedGraph graph){
         for (int i=0; i<nodeCount; i++){
             for(int j=0; j<nodeCount; j++){
                 if(graph.getEdgeDLG(i,j) == 1){
@@ -81,7 +81,7 @@ public class DirectLinkedGraph {
             System.out.println();
         }
     }
-    void deleteGraphDLG(){
+    public void deleteGraphDLG(){
         nodeCount = 0;
         ppAdjEdge = null;
     }
