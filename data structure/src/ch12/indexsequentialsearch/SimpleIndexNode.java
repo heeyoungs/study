@@ -3,16 +3,16 @@ package ch12.indexsequentialsearch;
 public class SimpleIndexNode {
     private int position;
     private int key;
-    void setPosition(int position){
+    public void setPosition(int position){
         this.position = position;
     }
-    void setKey(int key){
+    public void setKey(int key){
         this.key = key;
     }
-    int getPosition(){
+    public int getPosition(){
         return position;
     }
-    int getKey(){
+    public int getKey(){
         return key;
     }
 }

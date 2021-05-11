@@ -2,7 +2,7 @@ package ch12.indexsequentialsearch;
 
 public class SimpleIndex {
     private SimpleIndexNode[] nodes;
-    SimpleIndex(int[] values, int size, int indexSize){
+    public SimpleIndex(int[] values, int size, int indexSize){
         int i = 0;
         int ratio = 0;
 
@@ -18,7 +18,7 @@ public class SimpleIndex {
             nodes[i].setKey( values[ i * ratio ] );
         }
     }
-    int sequentialIndexSearch(int values[], int size, int indexSize, int key){
+    public int sequentialIndexSearch(int values[], int size, int indexSize, int key){
         int i = 0;
         int start,end;
         if ( key < values[0] || key > values[size-1] ){
@@ -41,7 +41,7 @@ public class SimpleIndex {
 
         return sequentialRangeSearch(values, start, end, key);
     }
-    int sequentialRangeSearch(int values[], int start, int end, int key){
+    public int sequentialRangeSearch(int values[], int start, int end, int key){
         int i = 0;
         for ( i = start; i <= end && values[i] < key; i++ ){}
         if ( i <= end && values[i] == key ){
@@ -49,7 +49,7 @@ public class SimpleIndex {
         }
         return -1;
     }
-    void showIndexTable(int indexSize){
+    public void showIndexTable(int indexSize){
         System.out.println("인덱스 테이블");
         System.out.println("위치,키");
         System.out.println("-----------");
@@ -63,8 +63,5 @@ public class SimpleIndex {
         for ( int  i = 0; i < size; i++){
             System.out.println( i + "," + values[i] );
         }
-    }
-    void deleteIndexTable(){
-        nodes = null;
     }
 }

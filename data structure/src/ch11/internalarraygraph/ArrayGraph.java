@@ -205,9 +205,7 @@ public class ArrayGraph {
         LinkedQueue queue = new LinkedQueue();
         LinkedQueueNode queueNode = null;
         int[] pVisit = new int[nodeCount];
-        if (queue == null || pVisit == null) {
-            return;
-        }
+
         pVisit[startNode] = 1;
         queue.enqueueLQ(startNode);
         while (queue.isLinkedQueueEmpty() == -1) {
@@ -230,23 +228,4 @@ public class ArrayGraph {
         }
         queue.deleteLQ();
     }
-//    int addEdgewithWeightLG(int fromNode, int toNode,int weight){
-//        if(addEdgeInternalLG(fromNode,toNode) == -1){
-//            return -1;
-//        }
-//        addEdgeInternalLG(fromNode, toNode);
-//        return addEdgeInternalLG(toNode,fromNode);
-//    }
-//    int getEdgeWeightLG(int fromNode, int toNode){
-//        if(checkVertexValid(fromNode)&&checkVertexValid(toNode)){
-//            LinkedList list = ppAdjEdge[fromNode];
-//            int count = list.getLinkedListLength();
-//            for(int i = 0;i < count; i++){
-//                if(list.getNodeData(i) == toNode){
-//                    return 1;
-//                }
-//            }
-//        }
-//        return -1;
-//    }
 }

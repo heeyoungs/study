@@ -31,8 +31,6 @@ public class SimpleIndexExample {
             else {
                 System.out.println("키-" + key + ",검색 실패");
             }
-
-            pIndexTable.deleteIndexTable();
         }
     }
 }

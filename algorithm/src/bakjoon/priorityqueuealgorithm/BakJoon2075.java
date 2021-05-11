@@ -12,6 +12,7 @@ public class BakJoon2075 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         PriorityQueue<Integer> queue = new PriorityQueue<>();
         int N = Integer.parseInt(br.readLine());
+
         for (int i = 0; i < N; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
             for (int j = 0; j < N; j++) {
@@ -37,3 +38,4 @@ public class BakJoon2075 {
 3. 큐의 크기가 N보다 크면 팝
 결과적으로 큐의 맨 꼭대기 값은 N번째 큰 수가 됨.
  */
+

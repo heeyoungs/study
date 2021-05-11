@@ -2,15 +2,15 @@ package ch12.binsearchtree;
 
 public class BinSearchTree {
     private BinSearchTreeNode rootNode;
-    BinSearchTreeNode getRootNode(){
+    public BinSearchTreeNode getRootNode(){
         return rootNode;
     }
 
-    BinSearchTree() {
+    public BinSearchTree() {
         rootNode = null;
     }
 
-    BinSearchTreeNode searchBST(int key) {
+    public BinSearchTreeNode searchBST(int key) {
         BinSearchTreeNode tempNode = rootNode;
         while (tempNode != null) {
             if ( key == tempNode.getKey() ) {
@@ -24,7 +24,7 @@ public class BinSearchTree {
         return tempNode;
     }
     // 삽입
-    int insertDataBST(int key, char value) {
+    public int insertDataBST(int key, char value) {
         BinSearchTreeNode parentNode = null;
         BinSearchTreeNode newNode = null;
 
@@ -38,7 +38,7 @@ public class BinSearchTree {
         insertNewBinSearchTreeNode(parentNode, newNode);
         return 1;
     }
-    BinSearchTreeNode getParentNode(BinSearchTreeNode tempNode, int key) {
+    public BinSearchTreeNode getParentNode(BinSearchTreeNode tempNode, int key) {
         int ret = 1;
         BinSearchTreeNode parentNode = null;
 
@@ -60,7 +60,7 @@ public class BinSearchTree {
         }
         return null;
     }
-    BinSearchTreeNode createBinSearchTreeNode ( int key, char value){
+    public BinSearchTreeNode createBinSearchTreeNode ( int key, char value){
             BinSearchTreeNode newNode = new BinSearchTreeNode();
             newNode.setKey(key);
             newNode.setValue(value);
@@ -68,7 +68,7 @@ public class BinSearchTree {
             newNode.setRightchild(null);
             return newNode;
     }
-    void insertNewBinSearchTreeNode(BinSearchTreeNode parentNode, BinSearchTreeNode newNode) {
+    public void insertNewBinSearchTreeNode(BinSearchTreeNode parentNode, BinSearchTreeNode newNode) {
         if (parentNode == null) {
             rootNode = newNode;
         } else {
@@ -80,7 +80,7 @@ public class BinSearchTree {
         }
     }
     // 제거
-    int deleteDataBST(int key){
+    public int deleteDataBST(int key){
         BinSearchTreeNode node[] = new BinSearchTreeNode[2]; // 0 delNode, 1 parentNode
         node = searchWithParentNodeBST(key);
         if ( node[0] == null ){
@@ -99,7 +99,7 @@ public class BinSearchTree {
 
         return 1;
     }
-    BinSearchTreeNode[] searchWithParentNodeBST(int key){
+    public BinSearchTreeNode[] searchWithParentNodeBST(int key){
         BinSearchTreeNode returnNode[] = new BinSearchTreeNode[2]; // 0 delNode, 1 parentNode
 
         returnNode[0] = rootNode;
@@ -117,7 +117,7 @@ public class BinSearchTree {
         }
         return returnNode;
     }
-    void deleteNodeNoChild(BinSearchTreeNode parentNode, BinSearchTreeNode delNode){
+    public void deleteNodeNoChild(BinSearchTreeNode parentNode, BinSearchTreeNode delNode){
         if ( parentNode != null ){
             if ( parentNode.getLeftchild() == delNode ) {
                 parentNode.setLeftchild(null);
@@ -128,7 +128,7 @@ public class BinSearchTree {
             rootNode = null;
         }
     }
-    void deleteNodeOneChild(BinSearchTreeNode parentNode, BinSearchTreeNode delNode){
+    public void deleteNodeOneChild(BinSearchTreeNode parentNode, BinSearchTreeNode delNode){
         BinSearchTreeNode childNode = null;
 
         if ( delNode.getLeftchild() != null ) {
@@ -148,7 +148,7 @@ public class BinSearchTree {
         }
 
     }
-    void deleteNodeTwoChild(BinSearchTreeNode parentNode, BinSearchTreeNode delNode){
+    public void deleteNodeTwoChild(BinSearchTreeNode parentNode, BinSearchTreeNode delNode){
         BinSearchTreeNode predecessor = null; // 대체할 노드 바로 직전 노드, delNode 지울 노드, parentNode 지울 노드의 부모 노드
         BinSearchTreeNode successor = null; // 대체할 노드
 
@@ -174,7 +174,7 @@ public class BinSearchTree {
         }
     }
 
-    void displayBinSearchTree(BinSearchTreeNode treeNode, int level, char type){
+    public void displayBinSearchTree(BinSearchTreeNode treeNode, int level, char type){
         if ( treeNode != null ) {
             for (int i = 0; i < level; i++) {
                 System.out.print("     ");
@@ -185,7 +185,7 @@ public class BinSearchTree {
             displayBinSearchTree(treeNode.getRightchild(), level + 1 ,'R');
         }
     }
-    void deleteBinSearchTree(){
+    public void deleteBinSearchTree(){
         rootNode = null;
     }
 }

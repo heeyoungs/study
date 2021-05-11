@@ -42,7 +42,7 @@ public class BinarySearchExample {
         }
         return ret;
     }
-    static int binarySearchRecursive_(int values[], int start, int end, int key){
+    static int binarySearchWhile(int values[], int start, int end, int key){
         int ret = -1;
         int middle;
         int tempStart = start, tempEnd = end;
