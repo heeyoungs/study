@@ -16,8 +16,6 @@ public class Select {
             array[k] = random.nextInt(100) + 1;
             System.out.print(array[k] + " "); // 입력받은 난수를 출력합니다.
         }
-
-
         System.out.print("\n" + i + "번째 작은 수: " + select(array, 0, n - 1, i));
     }
 

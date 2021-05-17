@@ -23,6 +23,11 @@ public class InsertionSort {
                 }
             }
             data[j + 1] = key; // j는 key보다 작은값이 있는 자리의 시작부분 -> j + 1 에 key값을 삽입
+
+            for(int k=0;k<length;k++){
+                System.out.print(data[k] + " ");
+            }
+            System.out.println();
         }
     }
 }
