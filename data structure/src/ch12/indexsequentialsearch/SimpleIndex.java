@@ -18,6 +18,7 @@ public class SimpleIndex {
             nodes[i].setKey( values[ i * ratio ] );
         }
     }
+
     public int sequentialIndexSearch(int values[], int size, int indexSize, int key){
         int i = 0;
         int start,end;
@@ -30,6 +31,7 @@ public class SimpleIndex {
                 break;
             }
         }
+
         if ( i < indexSize ){
             start = nodes[i-1].getPosition();
             end  = nodes[i].getPosition() - 1;
@@ -41,6 +43,7 @@ public class SimpleIndex {
 
         return sequentialRangeSearch(values, start, end, key);
     }
+
     public int sequentialRangeSearch(int values[], int start, int end, int key){
         int i = 0;
         for ( i = start; i <= end && values[i] < key; i++ ){}

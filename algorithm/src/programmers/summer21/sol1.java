@@ -1,4 +1,4 @@
-package programmers;
+package programmers.summer21;
 
 public class sol1 {
     public static void main(String[] args) {

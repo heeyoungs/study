@@ -3,6 +3,7 @@ package sourcecode.search;
 import java.util.Random;
 import java.util.Scanner;
 
+// 평균 선형 시간 검색
 public class Select {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

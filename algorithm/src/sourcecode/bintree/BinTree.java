@@ -97,6 +97,7 @@ public class BinTree {
                     } else { // 오른쪽 자식이 비어있다면
                         temp = node.getpRightChild(); // temp에 그 오른쪽 자식을 저장함
                     }
+
                     if (parent.getpLeftChild() == node) {  // 왼쪽 노드 였을 경우
                         parent.setpLeftChild(temp); // 현재 노드의 부모의 왼쪽 자식에 temp를 이어줌
                     } else { // 오른쪽 노드 였을 경우

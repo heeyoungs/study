@@ -1,4 +1,4 @@
-package kakao;
+package programmers.kakao21;
 
 import java.util.ArrayList;
 import java.util.Arrays;

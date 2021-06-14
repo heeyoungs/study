@@ -24,6 +24,7 @@ public class BinarySearchExample {
             System.out.println("키-" + key + ",검색 실패");
         }
     }
+
     static int binarySearchRecursive(int values[], int start, int end, int key){
         int ret = -1;
         int middle;
@@ -42,6 +43,7 @@ public class BinarySearchExample {
         }
         return ret;
     }
+
     static int binarySearchWhile(int values[], int start, int end, int key){
         int ret = -1;
         int middle;
