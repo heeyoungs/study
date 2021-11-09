@@ -76,7 +76,6 @@ public class Application {
                                         System.out.println("<0,1,2,3,4,5> 중에 하나를 눌러주세요!");
                                         break;
                                 }
-
                             }
                             break;
                         } else {

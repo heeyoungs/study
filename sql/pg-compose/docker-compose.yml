@@ -1,0 +1,15 @@
+version: '3'
+services:
+  database:
+    image: postgres
+    container_name: pgsql
+    volumes:
+      - ./docker/data:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d/init
+      - ./schemas:/docker-entrypoint-initdb.d/schemas
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 5434:5432
+

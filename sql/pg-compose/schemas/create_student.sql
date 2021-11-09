@@ -1,0 +1,7 @@
+/* 학생 테이블 생성 (student.sql) */
+CREATE TABLE STUDENT (
+    SCODE	 VARCHAR(4) NOT NULL PRIMARY KEY,
+    SNAME	 VARCHAR(10),
+    SDEPT	 VARCHAR(12),
+    SPHONE	 VARCHAR(8)
+);
